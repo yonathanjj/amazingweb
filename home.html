@@ -11,17 +11,24 @@
             margin: 0;
             font-family: 'Pacifico', cursive;
             background-color: #caf0f8; /* Pale white background */
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
 
         header {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-between; /* Align logo and nav to opposite sides */
             align-items: center;
             padding: 20px;
             background: transparent;
             position: fixed;
             width: 100%;
             z-index: 10;
+            left: 0;
+            right: 0; /* Center header */
+        }
+
+        .logo {
+            margin-left: 20px; /* Adjust logo margin */
         }
 
         .logo img {
@@ -31,9 +38,10 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 20px;
+            gap: 20px; /* Increased gap for better touch area */
             margin: 0;
             padding: 0;
+            margin-right: 20px; /* Adjust right margin */
         }
 
         nav ul li {
@@ -43,16 +51,18 @@
         nav ul li a {
             color: black;
             text-decoration: none;
+            padding: 10px; /* Adjust padding for better touch area */
         }
 
         main {
             text-align: center;
             padding: 50px;
-            width: 1440px; /* Set the main content width */
-            height: 1814px; /* Set the main content height */
+            width: 100%; /* Full width */
+            max-width: 1440px; /* Maximum width */
             margin: auto; /* Center the content horizontally */
-            overflow: hidden; /* Prevent scrolling beyond specified dimensions */
             position: relative; /* Ensure positioning context */
+            overflow-y: auto; /* Enable vertical scrolling */
+            padding-top: 120px; /* Ensure space for navigation */
         }
 
         .home {
@@ -69,16 +79,20 @@
             font-size: 10rem;
             color: #000000;
             z-index: -1;
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Center text */
         }
 
         .image-grid {
             display: grid;
             grid-template-columns: repeat(4, 250px); /* Adjust column width */
             grid-template-rows: repeat(8, 315px); /* Adjust row height */
-            gap: 20px;
-            width: 1000px; /* Adjust total grid width */
-            margin: auto;
-            padding-top: 80px; /* Ensure space for navigation */
+            gap: 20px; /* Increased gap */
+            width: 100%; /* Full width */
+            max-width: 1000px; /* Maximum grid width */
+            margin: auto; /* Center the grid horizontally */
+            margin-left: 20px; /* Adjust left margin */
         }
 
         .image-grid img {
@@ -94,11 +108,36 @@
         }
 
         @media (max-width: 768px) {
+            header {
+                padding: 10px; /* Reduced padding for mobile */
+            }
+
+            .logo {
+                margin-left: 10px; /* Adjust logo margin */
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px; /* Decreased gap for mobile */
+                align-items: flex-end; /* Align nav items to right corner */
+                margin-right: 10px; /* Adjust right margin */
+            }
+
+            nav ul li {
+                font-size: 16px; /* Reduced font size for mobile */
+            }
+
+            main {
+                padding-top: 100px; /* Adjust top padding for mobile */
+            }
+
             .image-grid {
-                grid-template-columns: 1fr;
-                grid-template-rows: repeat(16, 1fr); /* Adjust for mobile layout */
-                width: 100%; /* Full width on mobile */
-                padding-top: 20px; /* Reduce top padding */
+                grid-template-columns: 1fr; /* Single column layout */
+                grid-template-rows: repeat(16, 1fr); /* Adjust row count */
+                width: 100%; /* Full width */
+                max-width: none; /* No max width on mobile */
+                padding: 20px; /* Add padding for better spacing */
+                margin-left: 10px; /* Adjust left margin */
             }
         }
     </style>
@@ -136,6 +175,7 @@
                 <img src="psy16.jpg" alt="Image 14">
                 <img src="psy17.jpg" alt="Image 15">
                 <img src="psy18.jpg" alt="Image 16">
+                <!-- Add more images as needed -->
             </div>
         </section>
     </main>
