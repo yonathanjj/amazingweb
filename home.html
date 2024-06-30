@@ -48,6 +48,11 @@
         main {
             text-align: center;
             padding: 50px;
+            width: 1440px; /* Set the main content width */
+            height: 1814px; /* Set the main content height */
+            margin: auto; /* Center the content horizontally */
+            overflow: hidden; /* Prevent scrolling beyond specified dimensions */
+            position: relative; /* Ensure positioning context */
         }
 
         .home {
@@ -68,17 +73,20 @@
 
         .image-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(2, 1fr);
+            grid-template-columns: repeat(4, 250px); /* Adjust column width */
+            grid-template-rows: repeat(8, 315px); /* Adjust row height */
             gap: 20px;
-            width: 80%;
+            width: 1000px; /* Adjust total grid width */
             margin: auto;
+            padding-top: 80px; /* Ensure space for navigation */
         }
 
         .image-grid img {
             width: 100%;
-            border-radius: 50px;
+            height: 100%;
+            border-radius: 20px;
             transition: transform 0.3s;
+            object-fit: cover; /* Maintain aspect ratio */
         }
 
         .image-grid img:hover {
@@ -88,11 +96,9 @@
         @media (max-width: 768px) {
             .image-grid {
                 grid-template-columns: 1fr;
-                grid-template-rows: repeat(8, 1fr);
-            }
-
-            .image-grid img {
-                width: 100%;
+                grid-template-rows: repeat(16, 1fr); /* Adjust for mobile layout */
+                width: 100%; /* Full width on mobile */
+                padding-top: 20px; /* Reduce top padding */
             }
         }
     </style>
@@ -133,32 +139,5 @@
             </div>
         </section>
     </main>
-    <script>
-        // script.js
-        window.addEventListener('scroll', () => {
-            const images = document.querySelectorAll('.image-grid img');
-            const scrollPos = window.scrollY;
-
-            images.forEach((img, index) => {
-                const row = Math.floor(index / 4);
-                const col = index % 4;
-                const height = img.clientHeight;
-
-                if (col === 0 || col === 2) {
-                    img.style.transform = `translateY(-${scrollPos * 0.5 % height}px)`;
-                } else {
-                    img.style.transform = `translateY(${scrollPos * 0.5 % height}px)`;
-                }
-            });
-        });
-
-        setInterval(() => {
-            const images = document.querySelectorAll('.image-grid img');
-
-            images.forEach((img, index) => {
-                img.style.transform = `translateY(${Math.random() * 10}px)`;
-            });
-        }, 3000); // Adjust the interval as needed
-    </script>
 </body>
 </html>
