@@ -28,6 +28,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             z-index: 10;
             transition: opacity 0.5s ease-out;
         }
@@ -38,18 +39,22 @@
         }
 
         .loading h1 {
-            font-size: 3rem;
+            font-size: 5rem;
+        }
+
+        .loading p {
+            font-size: 2rem;
         }
 
         .loading .loader {
             margin-top: 20px;
-            border: 8px solid #f3f3f3;
+            border: 12px solid #f3f3f3;
             border-radius: 50%;
-            border-top: 8px solid #3498db;
-            width: 60px;
-            height: 60px;
-            -webkit-animation: spin 2s linear infinite;
-            animation: spin 2s linear infinite;
+            border-top: 12px solid #3498db;
+            width: 80px;
+            height: 80px;
+            -webkit-animation: spin 1s linear infinite;
+            animation: spin 1s linear infinite;
         }
 
         @-webkit-keyframes spin {
@@ -91,7 +96,7 @@
         .nav-bar .menu-toggle span {
             height: 2px;
             width: 25px;
-            background: black;
+            background: white;
             margin: 4px 0;
             transition: 0.4s;
         }
@@ -166,12 +171,15 @@
             gap: 10px;
             overflow: hidden;
             z-index: 1;
+            background: black;
         }
 
         .pinterest-layout .item {
             background: lightgrey;
             overflow: hidden;
             transition: transform 0.3s;
+            background-size: cover;
+            background-position: center;
         }
 
         .pinterest-layout .item:hover {
@@ -221,94 +229,59 @@
     <div class="scrolling-wrapper" id="scrollingWrapper">
         <div class="pinterest-layout" id="pinterestLayout">
             <!-- Example items (replace with your images/videos) -->
-            <div class="item" style="background-image: url('image1.jpg'); height: 400px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 250px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 300px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 250px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 400px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 250px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 270px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 350px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 250px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 400px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 250px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 250px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 250px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 250px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 250px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 250px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 250px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 250px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 250px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 250px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 250px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 250px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 250px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 250px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 250px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 250px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 250px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 250px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 250px;"></div>
-            <div class="item" style="background-image: url('image2.jpg'); height: 250px;"></div>
-
-            <!-- Add 30+ items here -->
+            <div class="item" style="background-image: url('aid2.jpg'); height: 400px; width: 250px;"></div>
+            <div class="item" style="background-image: url('aid4.jpg'); height: 250px; width: 250px;"></div>
+            <div class="item" style="background-image: url('bazaar1.jpg'); height: 500px; width: 250px;"></div>
+            <div class="item" style="background-image: url('bazaar2.jpg'); height: 300px; width: 300px;"></div>
+            <div class="item" style="background-image: url('bazaar11.jpg'); height: 350px; width: 250px;"></div>
+            <div class="item" style="background-image: url('bazaar4.jpg'); height: 400px; width: 300px;"></div>
+            <div class="item" style="background-image: url('psy4.jpg'); height: 250px; width: 300px;"></div>
+            <div class="item" style="background-image: url('psy11.jpg'); height: 450px; width: 250px;"></div>
+            <div class="item" style="background-image: url('psy12.jpg'); height: 300px; width: 250px;"></div>
+            <div class="item" style="background-image: url('psy13.jpg'); height: 500px; width: 300px;"></div>
+            <div class="item" style="background-image: url('psy14.jpg'); height: 250px; width: 250px;"></div>
+            <div class="item" style="background-image: url('image12.jpg'); height: 350px; width: 250px;"></div>
+            <div class="item" style="background-image: url('image13.jpg'); height: 300px; width: 300px;"></div>
+            <div class="item" style="background-image: url('image14.jpg'); height: 400px; width: 300px;"></div>
+            <div class="item" style="background-image: url('image15.jpg'); height: 250px; width: 300px;"></div>
+            <div class="item" style="background-image: url('image16.jpg'); height: 450px; width: 250px;"></div>
+            <div class="item" style="background-image: url('image17.jpg'); height: 500px; width: 250px;"></div>
+            <div class="item" style="background-image: url('image18.jpg'); height: 300px; width: 250px;"></div>
+            <div class="item" style="background-image: url('image19.jpg'); height: 400px; width: 300px;"></div>
+            <div class="item" style="background-image: url('image20.jpg'); height: 250px; width: 300px;"></div>
+            <div class="item" style="background-image: url('image21.jpg'); height: 350px; width: 250px;"></div>
+            <div class="item" style="background-image: url('image22.jpg'); height: 300px; width: 300px;"></div>
+            <div class="item" style="background-image: url('image23.jpg'); height: 450px; width: 300px;"></div>
+            <div class="item" style="background-image: url('image24.jpg'); height: 250px; width: 250px;"></div>
+            <div class="item" style="background-image: url('image25.jpg'); height: 500px; width: 250px;"></div>
+            <div class="item" style="background-image: url('image26.jpg'); height: 300px; width: 250px;"></div>
+            <div class="item" style="background-image: url('image27.jpg'); height: 400px; width: 300px;"></div>
+            <div class="item" style="background-image: url('image28.jpg'); height: 250px; width: 300px;"></div>
+            <div class="item" style="background-image: url('image29.jpg'); height: 350px; width: 250px;"></div>
+            <div class="item" style="background-image: url('image30.jpg'); height: 500px; width: 250px;"></div>
         </div>
     </div>
 
     <script>
         // Loading Screen
         window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loadingScreen').classList.add('hidden');
-            }, 10000); // 10 seconds
+            const loadingScreen = document.getElementById('loadingScreen');
+            loadingScreen.classList.add('hidden');
+            setTimeout(() => loadingScreen.style.display = 'none', 500);
         });
 
-        // Navigation Menu Toggle
+        // Navigation Toggle
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
         const logo = document.getElementById('logo');
 
         menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('open');
             navMenu.classList.toggle('open');
+            menuToggle.classList.toggle('open');
         });
 
-        // Navigate to Home on Logo Click
         logo.addEventListener('click', () => {
-            window.location.reload(); // Or navigate to the home page
-        });
-
-        // Infinite Scrolling Setup
-        const scrollingWrapper = document.getElementById('scrollingWrapper');
-        let isDown = false;
-        let startX, startY, scrollLeft, scrollTop;
-
-        scrollingWrapper.addEventListener('mousedown', (e) => {
-            isDown = true;
-            startX = e.pageX - scrollingWrapper.offsetLeft;
-            startY = e.pageY - scrollingWrapper.offsetTop;
-            scrollLeft = scrollingWrapper.scrollLeft;
-            scrollTop = scrollingWrapper.scrollTop;
-        });
-
-        scrollingWrapper.addEventListener('mouseleave', () => {
-            isDown = false;
-        });
-
-        scrollingWrapper.addEventListener('mouseup', () => {
-            isDown = false;
-        });
-
-        scrollingWrapper.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - scrollingWrapper.offsetLeft;
-            const y = e.pageY - scrollingWrapper.offsetTop;
-            const walkX = (x - startX) * 3; // Scroll-fast
-            const walkY = (y - startY) * 3; // Scroll-fast
-            scrollingWrapper.scrollLeft = scrollLeft - walkX;
-            scrollingWrapper.scrollTop = scrollTop - walkY;
+            window.location.reload(); // Simulates going back to the home page
         });
     </script>
 </body>
