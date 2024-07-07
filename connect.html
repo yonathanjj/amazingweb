@@ -3,15 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LaMonje</title>
+    <title>Connect - LaMonje</title>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #000000;
-            color: #FB8500;
+            background-color: #FFFFFF;
+            color: #000000;
             font-family: 'Anton', sans-serif;
             margin: 0;
             padding: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        body.loaded {
+            opacity: 1;
         }
 
         .navbar {
@@ -22,6 +28,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            background: transparent;
         }
 
         .navbar a {
@@ -32,171 +39,176 @@
         }
 
         .navbar a:hover {
-            color: #fff;
+            color: #000;
         }
 
-        .image-container {
-            display: flex;
-            justify-content: flex-start; /* Start images from left on desktop */
-            overflow-x: auto; /* Allow horizontal scrolling */
-            margin: 20px 0;
-            padding: 10px; /* Add padding to prevent edge clipping */
-            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-        }
-
-        .image-block {
+        .main-header {
             text-align: center;
-            margin-right: 20px; /* Add spacing between images */
-        }
-
-        .image-block img {
-            width: 271px;
-            height: 592px;
-            border-radius: 30px;
-            transition: transform 0.3s ease, filter 0.3s ease;
-        }
-
-        .image-block img:hover {
-            transform: scale(0.95);
-            filter: brightness(1.2);
-        }
-
-        .image-block .image-caption {
-            color: #FB8500;
-            margin-top: 10px;
-        }
-
-        .main-text {
             font-size: 150px;
-            text-align: center;
-            margin: 50px 0;
-            color: #FB8500;
-            letter-spacing: 15px;
+            margin: 40px 0;
+            animation: slide-in 2s ease-out;
         }
 
-        .main-text:hover {
-            animation: flip 0.6s;
-        }
-
-        @keyframes flip {
-            0% {
-                transform: rotateX(0);
+        @keyframes slide-in {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
             }
-            100% {
-                transform: rotateX(360deg);
+            to {
+                opacity: 1;
+                transform: translateX(0);
             }
         }
 
-        .center-image {
+        .content {
             display: flex;
-            justify-content: center;
-            margin: 30px 0;
+            justify-content: space-around;
+            align-items: flex-start;
+            padding: 20px;
         }
 
-        .center-image img {
-            width: 300px;
+        .divider {
+            width: 2px;
+            background-color: #000000;
+            height: 100%;
+            margin: 0 20px;
+        }
+
+        .left-side,
+        .right-side {
+            width: 45%;
+        }
+
+        .project-header {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .email {
+            font-family: 'Shadows Into Light', cursive;
+            font-size: 24px;
+        }
+
+        .left-side img {
+            width: 200px;
             height: auto;
+            margin-top: 20px;
         }
 
-        .paragraph {
-            text-align: center;
-            margin: 50px 20px;
-            color: #FB8500;
+        .contact-info {
+            font-family: 'Shadows Into Light', cursive;
+            font-size: 20px;
+        }
+
+        .contact-info .person {
+            margin-bottom: 20px;
         }
 
         .footer {
             text-align: center;
-            margin: 50px 0;
+            margin: 40px 0;
             font-family: 'Shadows Into Light', cursive;
+            font-size: 24px;
         }
 
         .footer a {
-            color: #FB8500;
+            color: #000000;
             text-decoration: none;
-            font-size: 30px;
-            display: inline-flex;
-            align-items: center;
-            transition: color 0.3s ease, transform 0.3s ease;
+            margin: 0 10px;
+            transition: color 0.3s ease;
         }
 
         .footer a:hover {
-            color: #fff;
-        }
-
-        .footer a .arrow {
-            margin-left: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .footer a:hover .arrow {
-            transform: translateX(10px);
+            color: #FB8500;
         }
 
         @media (max-width: 768px) {
-            .image-container {
-                flex-direction: row; /* Display images in a row */
-                justify-content: flex-start; /* Start images from left */
-                padding: 0; /* Remove padding for mobile */
-                overflow-x: auto; /* Allow horizontal scrolling */
-                -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-                -ms-overflow-style: -ms-autohiding-scrollbar; /* Hide scrollbar on Edge */
-            }
-
-            .image-block {
-                margin-right: 10px; /* Adjust spacing between images */
-            }
-
-            .main-text {
+            .main-header {
                 font-size: 70px;
             }
 
-            .navbar a {
-                margin: 0 5px;
+            .content {
+                flex-direction: column;
+                align-items: center;
             }
 
-            .paragraph {
-                margin: 30px 20px; /* Adjust margin for paragraph */
+            .left-side,
+            .right-side {
+                width: 90%;
+                text-align: center;
+            }
+
+            .project-header {
+                font-size: 30px;
+            }
+
+            .email,
+            .contact-info {
+                font-size: 18px;
+            }
+
+            .footer {
+                font-size: 20px;
+            }
+
+            .divider {
+                display: none;
+            }
+
+            .left-side img {
+                width: 150px;
             }
         }
     </style>
 </head>
 <body>
     <div class="navbar">
-        <a href="#">Home</a>
-        <a href="#">Projects</a>
-        <a href="#">About</a>
-        <a href="#">Connect</a>
+        <a href="home.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="connect.html">Connect</a>
     </div>
-    <div class="image-container">
-        <div class="image-block">
-            <img src="hawf.png" alt="Image 1">
-            <div class="image-caption">HAWF</div>
-        </div>
-        <div class="image-block">
-            <img src="look.png" alt="Image 2">
-            <div class="image-caption">Look Up</div>
-        </div>
-        <div class="image-block">
-            <img src="pcf.png" alt="Image 3">
-            <div class="image-caption">PCF EDC</div>
-        </div>
-        <div class="image-block">
-            <img src="aid.png" alt="Image 4">
-            <div class="image-caption">Action Aid Ethiopia</div>
-        </div>
+    <div class="main-header">
+        Tell your story
     </div>
-    <div class="main-text">
-        L A M O N J E
-    </div>
-    <div class="center-image">
-        <img src="lamonjelogo1.png" alt="Center Image">
-    </div>
-    <div class="paragraph">
-        <p>Our clients entrust us with complex tasks of bringing their stories to life. <br>They understand the power of a well-crafted narrative and trust our expertise<br> to navigate the complexities of storytelling across events, content creation, and strategic marketing.</p>
+    <div class="content">
+        <div class="left-side">
+            <div class="project-header">Do you have a Project in mind?</div>
+            <div class="email">service@lamonje.com</div>
+            <img src="gif.gif" alt="Small Image">
+        </div>
+        <div class="divider"></div>
+        <div class="right-side">
+            <div class="contact-info">
+                <div class="person">
+                    <strong>Person 1</strong><br>
+                    Phone: 123-456-7890<br>
+                    Address: 123 Main St, City, Country<br>
+                    Email: person1@lamonje.com
+                </div>
+                <div class="person">
+                    <strong>Person 2</strong><br>
+                    Phone: 098-765-4321<br>
+                    Address: 456 Another St, City, Country<br>
+                    Email: person2@lamonje.com
+                </div>
+                <div class="person">
+                    <strong>Person 3</strong><br>
+                    Phone: 555-555-5555<br>
+                    Address: 789 Some St, City, Country<br>
+                    Email: person3@lamonje.com
+                </div>
+            </div>
+        </div>
     </div>
     <div class="footer">
-        <a href="#">Look at our projects <span class="arrow">→</span></a>
+        <a href="https://www.facebook.com">Facebook</a>
+        <a href="https://www.instagram.com">Instagram</a>
     </div>
+    <script>
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+    </script>
 </body>
 </html>
-
