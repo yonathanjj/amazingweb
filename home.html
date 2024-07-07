@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaMonje</title>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: #000000;
@@ -47,16 +47,11 @@
             height: 592px;
             border-radius: 30px;
             transition: transform 0.3s ease, filter 0.3s ease;
-            filter: brightness(1);
         }
 
         .image-container img:hover {
-            filter: brightness(1.2);
             transform: scale(0.95);
-        }
-
-        .image-container img:not(:hover) {
-            filter: brightness(0.5);
+            filter: brightness(1.2);
         }
 
         .image-headers {
@@ -94,18 +89,29 @@
         .footer {
             text-align: center;
             margin: 50px 0;
+            font-family: 'Shadows Into Light', cursive;
         }
 
         .footer a {
             color: #FB8500;
             text-decoration: none;
-            font-size: 20px;
+            font-size: 30px;
+            display: inline-flex;
+            align-items: center;
             transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .footer a:hover {
             color: #fff;
-            transform: scale(1.1);
+        }
+
+        .footer a .arrow {
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .footer a:hover .arrow {
+            transform: translateX(10px);
         }
 
         @media (max-width: 768px) {
@@ -136,15 +142,15 @@
     </div>
     <div class="image-container">
         <img src="hawf.png" alt="Image 1">
-        <img src="psy4.jpg" alt="Image 2">
-        <img src="psy11.jpg" alt="Image 3">
-        <img src="pcf.png" alt="Image 4">
+        <img src="look.png" alt="Image 2">
+        <img src="pcf.png" alt="Image 3">
+        <img src="aid.png" alt="Image 4">
     </div>
     <div class="image-headers">
-        <div>Header 1</div>
-        <div>Header 2</div>
-        <div>Header 3</div>
-        <div>Header 4</div>
+        <div>hub of africa</div>
+        <div>look up</div>
+        <div>PCF CDE</div>
+        <div>Action aid ethiopia</div>
     </div>
     <div class="main-text">
         L A M O N J E
@@ -153,10 +159,10 @@
         <img src="lamonjelogo1.png" alt="Center Image">
     </div>
     <div class="paragraph">
-        <p>This is a paragraph that provides more details about LaMonje...</p>
+        <p>This is a paragraph that provides more details about LaMonje.<br>is is a paragraph that provides more details ab</br>..</p>
     </div>
     <div class="footer">
-        <a href="#">Look at our projects →</a>
+        <a href="#">Look at our projects <span class="arrow">→</span></a>
     </div>
 </body>
 </html>
