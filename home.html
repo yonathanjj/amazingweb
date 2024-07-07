@@ -1,1 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaMonje</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000000;
+            color: #FB8500;
+            font-family: 'Anton', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #333;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: #FB8500;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #fff;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .image-container img {
+            width: 271px;
+            height: 592px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .image-container img:hover {
+            transform: scale(0.95);
+        }
+
+        .image-container img:not(:hover) {
+            filter: brightness(50%);
+        }
+
+        .image-headers {
+            display: flex;
+            justify-content: space-around;
+            color: #FB8500;
+            margin-bottom: 20px;
+        }
+
+        .main-text {
+            font-size: 100px;
+            text-align: center;
+            margin: 50px 0;
+            color: #FB8500;
+        }
+
+        .paragraph {
+            text-align: center;
+            margin: 50px 20px;
+            color: #FB8500;
+        }
+
+        .footer {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .footer a {
+            color: #FB8500;
+            text-decoration: none;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .image-container {
+                flex-direction: column;
+            }
+
+            .image-headers {
+                flex-direction: column;
+            }
+
+            .main-text {
+                font-size: 50px;
+            }
+
+            .navbar a {
+                margin: 0 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Projects</a>
+        <a href="#">About</a>
+        <a href="#">Connect</a>
+    </div>
+    <div class="image-container">
+        <img src="psy4.jpg" alt="Image 1">
+        <img src="psy11.jpg" alt="Image 2">
+        <img src="psy12.jpg" alt="Image 3">
+        <img src="psy15.jpg" alt="Image 4">
+    </div>
+    <div class="image-headers">
+        <div>whats up</div>
+        <div>what you</div>
+        <div>want here</div>
+        <div>abel fara</div>
+    </div>
+    <div class="main-text">
+        L A M O N J E
+    </div>
+    <div class="paragraph">
+        <p>This is a paragraph that provides more details about LaMonje...</p>
+    </div>
+    <div class="footer">
+        <a href="#">Look at our projects →</a>
+    </div>
+</body>
+</html>
 
