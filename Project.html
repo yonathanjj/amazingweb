@@ -9,13 +9,35 @@
         /* styles.css */
 
         body {
-            background-color: #EAE2B7;
+            background-color: #d2d4c8;
             color: #000000;
             font-family: 'Anton', sans-serif;
             margin: 0;
             padding: 0;
         }
+ .cursor {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            position: absolute;
+            background-color: rgba(251, 133, 0, 0.5); /* Orange color with transparency */
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            z-index: 9999;
+        }
 
+        .trail {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            position: absolute;
+            background-color: rgba(251, 133, 0, 0.5); /* Orange color with transparency */
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease;
+            z-index: 9998;
+        }
         .navbar {
             display: flex;
             justify-content: center;
@@ -491,6 +513,33 @@
     </div>
 
     <script>
+      // Custom cursor effect
+        const cursor = document.getElementById('cursor');
+        const trailCount = 10; // Number of trail elements
+        const trails = [];
+
+        // Create trail elements
+        for (let i = 0; i < trailCount; i++) {
+            const trail = document.createElement('div');
+            trail.className = 'trail';
+            document.body.appendChild(trail);
+            trails.push(trail);
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+
+            // Move trail elements
+            for (let i = 0; i < trails.length; i++) {
+                const trail = trails[i];
+                setTimeout(() => {
+                    trail.style.left = `${e.clientX}px`;
+                    trail.style.top = `${e.clientY}px`;
+                }, i * 20); // Delay each trail element for a staggered effect
+            }
+        });
+
         function toggleVisibility(id) {
             const section = document.getElementById(id);
             section.classList.toggle('visible');
