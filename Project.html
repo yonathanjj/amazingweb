@@ -45,13 +45,14 @@
 
         .section {
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 100%;
             margin: 40px 0;
         }
 
         .text {
-            max-width: 50%;
+            max-width: 40%;
             margin-right: 20px;
         }
 
@@ -65,111 +66,27 @@
             font-family: 'Shadows Into Light', cursive;
         }
 
-        .circle {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease;
+        .image-wrapper {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px;
+            width: 60%;
         }
 
-        .circle img {
+        .image-container {
+            position: relative;
+        }
+
+        .image-container img {
             width: 100%;
             height: auto;
+            border: 5px solid black;
+            border-radius: 10px;
             transition: transform 0.3s ease;
         }
 
-        .circle:hover img {
+        .image-container img:hover {
             transform: scale(1.1);
-        }
-
-        .arrow {
-            position: absolute;
-            right: -40px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 30px;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .arrow:hover {
-            color: #FB8500;
-        }
-
-        .slider {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .slider .slide {
-            margin: 0 5px;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-
-        .slider .slide:hover {
-            transform: scale(1.1);
-            opacity: 1;
-        }
-
-        .oval-wrapper {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .oval-wrapper .oval {
-            position: absolute;
-            width: 260px;
-            height: 260px;
-            border: 10px solid black;
-            border-radius: 50%;
-        }
-
-        .small-circle {
-            position: relative;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease;
-        }
-
-        .small-circle img {
-            width: 100%;
-            height: auto;
-            transition: transform 0.3s ease;
-        }
-
-        .small-circle:hover img {
-            transform: scale(1.1);
-        }
-
-        .small-arrow {
-            position: absolute;
-            right: -30px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 20px;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .small-arrow:hover {
-            color: #FB8500;
         }
 
         @media (max-width: 768px) {
@@ -181,20 +98,12 @@
                 font-size: 18px;
             }
 
-            .oval-wrapper,
-            .circle {
-                width: 200px;
-                height: 200px;
+            .image-wrapper {
+                grid-template-columns: 1fr;
             }
 
-            .small-circle {
-                width: 150px;
-                height: 150px;
-            }
-
-            .slider .slide {
-                width: 80px;
-                height: 80px;
+            .image-container img {
+                width: 100%;
             }
         }
     </style>
@@ -219,23 +128,24 @@
                     ● Comprehensive Reporting
                 </div>
             </div>
-            <div class="oval-wrapper">
-                <div class="oval"></div>
-                <img src="aid2.jpg" alt="Fashion Week Image">
-                <div class="arrow">→</div>
-            </div>
-            <div class="small-circle">
-                <img src="aid4.jpg" alt="Slide Image 1">
-                <div class="small-arrow">→</div>
+            <div class="image-wrapper">
+                <div class="image-container">
+                    <img src="psy11.jpg" alt="Slide Image 1">
+                </div>
+                <div class="image-container">
+                    <img src="about1.png" alt="Slide Image 2">
+                </div>
+                <div class="image-container">
+                    <img src="image4.jpg" alt="Slide Image 3">
+                </div>
+                <div class="image-container">
+                    <img src="image5.jpg" alt="Slide Image 4">
+                </div>
+                <div class="image-container">
+                    <img src="psy11.jpg" alt="Slide Image 5">
+                </div>
             </div>
         </div>
-        <div class="slider">
-            <div class="slide"><img src="psy11.jpg" alt="Slide Image 2"></div>
-            <div class="slide"><img src="about1.png" alt="Slide Image 3"></div>
-            <div class="slide"><img src="image4.jpg" alt="Slide Image 4"></div>
-            <div class="slide"><img src="image5.jpg" alt="Slide Image 5"></div>
-        </div>
-
         <!-- Repeat for each company -->
         <!-- Company 2 -->
         <div class="section">
@@ -249,26 +159,28 @@
                     ● Example Task 4
                 </div>
             </div>
-            <div class="oval-wrapper">
-                <div class="oval"></div>
-                <img src="aid2.jpg" alt="Example Image 1">
-                <div class="arrow">→</div>
+            <div class="image-wrapper">
+                <div class="image-container">
+                    <img src="psy11.jpg" alt="Slide Image 1">
+                </div>
+                <div class="image-container">
+                    <img src="about1.png" alt="Slide Image 2">
+                </div>
+                <div class="image-container">
+                    <img src="image4.jpg" alt="Slide Image 3">
+                </div>
+                <div class="image-container">
+                    <img src="image5.jpg" alt="Slide Image 4">
+                </div>
+                <div class="image-container">
+                    <img src="psy11.jpg" alt="Slide Image 5">
+                </div>
             </div>
-            <div class="small-circle">
-                <img src="aid4.jpg" alt="Example Image 2">
-                <div class="small-arrow">→</div>
-            </div>
-        </div>
-        <div class="slider">
-            <div class="slide"><img src="psy11.jpg" alt="Slide Image 2"></div>
-            <div class="slide"><img src="about1.png" alt="Slide Image 3"></div>
-            <div class="slide"><img src="image4.jpg" alt="Slide Image 4"></div>
-            <div class="slide"><img src="image5.jpg" alt="Slide Image 5"></div>
         </div>
 
-        <!-- Repeat the above structure for all 6 companies -->
-        <!-- Add more sections and sliders for each company as needed -->
-<div class="section">
+        <!-- Repeat for all companies -->
+        <!-- Company 3 -->
+        <div class="section">
             <div class="text">
                 <div class="title">Company 3, Industry: Example</div>
                 <div class="subtext">
@@ -279,24 +191,26 @@
                     ● Example Task 4
                 </div>
             </div>
-            <div class="oval-wrapper">
-                <div class="oval"></div>
-                <img src="aid2.jpg" alt="Example Image 1">
-                <div class="arrow">→</div>
-            </div>
-            <div class="small-circle">
-                <img src="aid4.jpg" alt="Example Image 2">
-                <div class="small-arrow">→</div>
+            <div class="image-wrapper">
+                <div class="image-container">
+                    <img src="psy11.jpg" alt="Slide Image 1">
+                </div>
+                <div class="image-container">
+                    <img src="about1.png" alt="Slide Image 2">
+                </div>
+                <div class="image-container">
+                    <img src="image4.jpg" alt="Slide Image 3">
+                </div>
+                <div class="image-container">
+                    <img src="image5.jpg" alt="Slide Image 4">
+                </div>
+                <div class="image-container">
+                    <img src="psy11.jpg" alt="Slide Image 5">
+                </div>
             </div>
         </div>
-        <div class="slider">
-            <div class="slide"><img src="psy11.jpg" alt="Slide Image 2"></div>
-            <div class="slide"><img src="about1.png" alt="Slide Image 3"></div>
-            <div class="slide"><img src="image4.jpg" alt="Slide Image 4"></div>
-            <div class="slide"><img src="image5.jpg" alt="Slide Image 5"></div>
-        </div>
 
-
+        <!-- Repeat for Company 4 -->
         <div class="section">
             <div class="text">
                 <div class="title">Company 4, Industry: Example</div>
@@ -308,24 +222,26 @@
                     ● Example Task 4
                 </div>
             </div>
-            <div class="oval-wrapper">
-                <div class="oval"></div>
-                <img src="aid2.jpg" alt="Example Image 1">
-                <div class="arrow">→</div>
-            </div>
-            <div class="small-circle">
-                <img src="aid4.jpg" alt="Example Image 2">
-                <div class="small-arrow">→</div>
+            <div class="image-wrapper">
+                <div class="image-container">
+                    <img src="psy11.jpg" alt="Slide Image 1">
+                </div>
+                <div class="image-container">
+                    <img src="about1.png" alt="Slide Image 2">
+                </div>
+                <div class="image-container">
+                    <img src="image4.jpg" alt="Slide Image 3">
+                </div>
+                <div class="image-container">
+                    <img src="image5.jpg" alt="Slide Image 4">
+                </div>
+                <div class="image-container">
+                    <img src="psy11.jpg" alt="Slide Image 5">
+                </div>
             </div>
         </div>
-        <div class="slider">
-            <div class="slide"><img src="psy11.jpg" alt="Slide Image 2"></div>
-            <div class="slide"><img src="about1.png" alt="Slide Image 3"></div>
-            <div class="slide"><img src="image4.jpg" alt="Slide Image 4"></div>
-            <div class="slide"><img src="image5.jpg" alt="Slide Image 5"></div>
-        </div>
 
-
+        <!-- Repeat for Company 5 -->
         <div class="section">
             <div class="text">
                 <div class="title">Company 5, Industry: Example</div>
@@ -337,22 +253,25 @@
                     ● Example Task 4
                 </div>
             </div>
-            <div class="oval-wrapper">
-                <div class="oval"></div>
-                <img src="aid2.jpg" alt="Example Image 1">
-                <div class="arrow">→</div>
-            </div>
-            <div class="small-circle">
-                <img src="aid4.jpg" alt="Example Image 2">
-                <div class="small-arrow">→</div>
+            <div class="image-wrapper">
+                <div class="image-container">
+                    <img src="psy11.jpg" alt="Slide Image 1">
+                </div>
+                <div class="image-container">
+                    <img src="about1.png" alt="Slide Image 2">
+                </div>
+                <div class="image-container">
+                    <img src="image4.jpg" alt="Slide Image 3">
+                </div>
+                <div class="image-container">
+                    <img src="image5.jpg" alt="Slide Image 4">
+                </div>
+                <div class="image-container">
+                    <img src="psy11.jpg" alt="Slide Image 5">
+                </div>
             </div>
         </div>
-        <div class="slider">
-            <div class="slide"><img src="psy11.jpg" alt="Slide Image 2"></div>
-            <div class="slide"><img src="about1.png" alt="Slide Image 3"></div>
-            <div class="slide"><img src="image4.jpg" alt="Slide Image 4"></div>
-            <div class="slide"><img src="image5.jpg" alt="Slide Image 5"></div>
-        </div>
+
 
         <div class="section">
             <div class="text">
@@ -365,24 +284,87 @@
                     ● Example Task 4
                 </div>
             </div>
-            <div class="oval-wrapper">
-                <div class="oval"></div>
-                <img src="aid2.jpg" alt="Example Image 1">
-                <div class="arrow">→</div>
-            </div>
-            <div class="small-circle">
-                <img src="aid4.jpg" alt="Example Image 2">
-                <div class="small-arrow">→</div>
+            <div class="image-wrapper">
+                <div class="image-container">
+                    <img src="psy11.jpg" alt="Slide Image 1">
+                </div>
+                <div class="image-container">
+                    <img src="about1.png" alt="Slide Image 2">
+                </div>
+                <div class="image-container">
+                    <img src="image4.jpg" alt="Slide Image 3">
+                </div>
+                <div class="image-container">
+                    <img src="image5.jpg" alt="Slide Image 4">
+                </div>
+                <div class="image-container">
+                    <img src="psy11.jpg" alt="Slide Image 5">
+                </div>
             </div>
         </div>
-        <div class="slider">
-            <div class="slide"><img src="psy11.jpg" alt="Slide Image 2"></div>
-            <div class="slide"><img src="about1.png" alt="Slide Image 3"></div>
-            <div class="slide"><img src="image4.jpg" alt="Slide Image 4"></div>
-            <div class="slide"><img src="image5.jpg" alt="Slide Image 5"></div>
+
+        <!-- Repeat for Company 7 -->
+        <div class="section">
+            <div class="text">
+                <div class="title">Company 7, Industry: Example</div>
+                <div class="subtext">
+                    What We Did:<br>
+                    ● Example Task 1<br>
+                    ● Example Task 2<br>
+                    ● Example Task 3<br>
+                    ● Example Task 4
+                </div>
+            </div>
+            <div class="image-wrapper">
+                <div class="image-container">
+                    <img src="psy11.jpg" alt="Slide Image 1">
+                </div>
+                <div class="image-container">
+                    <img src="about1.png" alt="Slide Image 2">
+                </div>
+                <div class="image-container">
+                    <img src="image4.jpg" alt="Slide Image 3">
+                </div>
+                <div class="image-container">
+                    <img src="image5.jpg" alt="Slide Image 4">
+                </div>
+                <div class="image-container">
+                    <img src="psy11.jpg" alt="Slide Image 5">
+                </div>
+            </div>
         </div>
 
 
+        <!-- Repeat for Company 8 -->
+        <div class="section">
+            <div class="text">
+                <div class="title">Company 8, Industry: Example</div>
+                <div class="subtext">
+                    What We Did:<br>
+                    ● Example Task 1<br>
+                    ● Example Task 2<br>
+                    ● Example Task 3<br>
+                    ● Example Task 4
+                </div>
+            </div>
+            <div class="image-wrapper">
+                <div class="image-container">
+                    <img src="about2.png" alt="Slide Image 1">
+                </div>
+                <div class="image-container">
+                    <img src="about1.png" alt="Slide Image 2">
+                </div>
+                <div class="image-container">
+                    <img src="aid4.jpg" alt="Slide Image 3">
+                </div>
+                <div class="image-container">
+                    <img src="aid2.jpg" alt="Slide Image 4">
+                </div>
+                <div class="image-container">
+                    <img src="about3.png" alt="Slide Image 5">
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
