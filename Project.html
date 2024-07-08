@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <style>
         /* styles.css */
+
         body {
             background-color: #EAE2B7;
             color: #000000;
@@ -100,7 +101,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start; /* Align to top */
             opacity: 1;
         }
 
@@ -126,14 +127,12 @@
             margin-top: 20px;
             padding: 20px;
             width: 80%;
-            max-width: 1000px; /* Adjusted max-width */
-            overflow-x: hidden; /* Hide horizontal overflow */
+            max-width: 1200px;
         }
 
         .image-container {
             flex: 1 1 auto;
-            max-width: calc(33.33% - 20px); /* Adjusted maximum width */
-            margin-bottom: 20px; /* Added margin between images */
+            max-width: 100%;
             overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
@@ -150,6 +149,18 @@
             transform: scale(1.1);
         }
 
+        .large {
+            flex-basis: calc(33.33% - 20px);
+        }
+
+        .medium {
+            flex-basis: calc(25% - 20px);
+        }
+
+        .small {
+            flex-basis: calc(16.66% - 20px);
+        }
+
         .details {
             margin-top: 20px;
             text-align: center;
@@ -157,6 +168,7 @@
             line-height: 1.6;
             color: #000000; /* Handwritten font color */
             font-family: 'Shadows Into Light', cursive; /* Handwritten font */
+            max-width: 80%;
         }
 
         @keyframes floatAnimation {
@@ -180,21 +192,12 @@
             .large, .medium, .small {
                 flex-basis: calc(50% - 20px);
             }
-
-            .image-container {
-                max-width: calc(50% - 20px); /* Adjusted maximum width for mobile */
-            }
-
-            .image-wrapper {
-                padding: 10px; /* Reduced padding for mobile */
-            }
         }
-
-        /* Ensure that pop-up content is centered on all devices */
         @media (max-width: 768px) {
-            .hidden-section.visible {
-                align-items: center;
-                justify-content: center;
+            .close-button {
+                font-size: 24px; /* Adjust font size for smaller screens */
+                top: 10px; /* Adjust position for smaller screens */
+                right: 10px; /* Adjust position for smaller screens */
             }
         }
     </style>
@@ -209,7 +212,7 @@
     <div class="content">
         <!-- Company 1 -->
         <div class="section" onclick="toggleVisibility('company1')">
-            <div class="title">Company 1, Industry: Fashion</div>
+            <div class="title">Action Aid ETHIOPIA</div>
             <div class="subtext">Explore the Project</div>
             <div class="hidden-section" id="company1">
                 <div class="close-button" onclick="toggleVisibility('company1')">X</div>
@@ -249,12 +252,241 @@
                     ● Staffing Solutions<br>
                     ● Comprehensive Reporting<br><br>
                     More about what we did: Detailed description here...
-                    <div class="close-button" onclick="toggleVisibility('company1')">X</div>
                 </div>
             </div>
         </div>
 
-        <!-- Repeat for other companies -->
+        <!-- Company 2 -->
+        <div class="section" onclick="toggleVisibility('company1')">
+            <div class="title">Company 2, Industry: Fashion</div>
+            <div class="subtext">Explore the Project</div>
+            <div class="hidden-section" id="company1">
+                <div class="close-button" onclick="toggleVisibility('company1')">X</div>
+                <div class="image-wrapper">
+                    <div class="image-container large">
+                        <img src="aid4.jpg" alt="Slide Image 1">
+                    </div>
+                    <div class="image-container medium">
+                        <img src="about1.png" alt="Slide Image 2">
+                    </div>
+                    <div class="image-container small">
+                        <img src="aid2.jpg" alt="Slide Image 3">
+                    </div>
+                    <div class="image-container medium">
+                        <img src="about4.png" alt="Slide Image 4">
+                    </div>
+                    <div class="image-container large">
+                        <img src="about3.png" alt="Slide Image 5">
+                    </div>
+                    <div class="image-container small">
+                        <img src="about1.png" alt="Slide Image 6">
+                    </div>
+                    <div class="image-container medium">
+                        <img src="about2.png" alt="Slide Image 7">
+                    </div>
+                    <div class="image-container large">
+                        <img src="aid4.jpg" alt="Slide Image 8">
+                    </div>
+                    <div class="image-container small">
+                        <img src="aid2.jpg" alt="Slide Image 9">
+                    </div>
+                </div>
+                <div class="details">
+                    What We Did:<br>
+                    ● Impact Analysis<br>
+                    ● Venue Design<br>
+                    ● Staffing Solutions<br>
+                    ● Comprehensive Reporting<br><br>
+                    More about what we did: Detailed description here...
+                </div>
+            </div>
+        </div>
+
+        <!-- Company 3 -->
+        <div class="section" onclick="toggleVisibility('company1')">
+            <div class="title">Company 3, Industry: Fashion</div>
+            <div class="subtext">Explore the Project</div>
+            <div class="hidden-section" id="company1">
+                <div class="close-button" onclick="toggleVisibility('company1')">X</div>
+                <div class="image-wrapper">
+                    <div class="image-container large">
+                        <img src="aid4.jpg" alt="Slide Image 1">
+                    </div>
+                    <div class="image-container medium">
+                        <img src="about1.png" alt="Slide Image 2">
+                    </div>
+                    <div class="image-container small">
+                        <img src="aid2.jpg" alt="Slide Image 3">
+                    </div>
+                    <div class="image-container medium">
+                        <img src="about4.png" alt="Slide Image 4">
+                    </div>
+                    <div class="image-container large">
+                        <img src="about3.png" alt="Slide Image 5">
+                    </div>
+                    <div class="image-container small">
+                        <img src="about1.png" alt="Slide Image 6">
+                    </div>
+                    <div class="image-container medium">
+                        <img src="about2.png" alt="Slide Image 7">
+                    </div>
+                    <div class="image-container large">
+                        <img src="aid4.jpg" alt="Slide Image 8">
+                    </div>
+                    <div class="image-container small">
+                        <img src="aid2.jpg" alt="Slide Image 9">
+                    </div>
+                </div>
+                <div class="details">
+                    What We Did:<br>
+                    ● Impact Analysis<br>
+                    ● Venue Design<br>
+                    ● Staffing Solutions<br>
+                    ● Comprehensive Reporting<br><br>
+                    More about what we did: Detailed description here...
+                </div>
+            </div>
+        </div>
+
+        <!-- Company 4 -->
+        <div class="section" onclick="toggleVisibility('company1')">
+            <div class="title">Company 4, Industry: Fashion</div>
+            <div class="subtext">Explore the Project</div>
+            <div class="hidden-section" id="company1">
+                <div class="close-button" onclick="toggleVisibility('company1')">X</div>
+                <div class="image-wrapper">
+                    <div class="image-container large">
+                        <img src="aid4.jpg" alt="Slide Image 1">
+                    </div>
+                    <div class="image-container medium">
+                        <img src="about1.png" alt="Slide Image 2">
+                    </div>
+                    <div class="image-container small">
+                        <img src="aid2.jpg" alt="Slide Image 3">
+                    </div>
+                    <div class="image-container medium">
+                        <img src="about4.png" alt="Slide Image 4">
+                    </div>
+                    <div class="image-container large">
+                        <img src="about3.png" alt="Slide Image 5">
+                    </div>
+                    <div class="image-container small">
+                        <img src="about1.png" alt="Slide Image 6">
+                    </div>
+                    <div class="image-container medium">
+                        <img src="about2.png" alt="Slide Image 7">
+                    </div>
+                    <div class="image-container large">
+                        <img src="aid4.jpg" alt="Slide Image 8">
+                    </div>
+                    <div class="image-container small">
+                        <img src="aid2.jpg" alt="Slide Image 9">
+                    </div>
+                </div>
+                <div class="details">
+                    What We Did:<br>
+                    ● Impact Analysis<br>
+                    ● Venue Design<br>
+                    ● Staffing Solutions<br>
+                    ● Comprehensive Reporting<br><br>
+                    More about what we did: Detailed description here...
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Company 5 -->
+        <div class="section" onclick="toggleVisibility('company1')">
+            <div class="title">Company 5, Industry: Fashion</div>
+            <div class="subtext">Explore the Project</div>
+            <div class="hidden-section" id="company1">
+                <div class="close-button" onclick="toggleVisibility('company1')">X</div>
+                <div class="image-wrapper">
+                    <div class="image-container large">
+                        <img src="aid4.jpg" alt="Slide Image 1">
+                    </div>
+                    <div class="image-container medium">
+                        <img src="about1.png" alt="Slide Image 2">
+                    </div>
+                    <div class="image-container small">
+                        <img src="aid2.jpg" alt="Slide Image 3">
+                    </div>
+                    <div class="image-container medium">
+                        <img src="about4.png" alt="Slide Image 4">
+                    </div>
+                    <div class="image-container large">
+                        <img src="about3.png" alt="Slide Image 5">
+                    </div>
+                    <div class="image-container small">
+                        <img src="about1.png" alt="Slide Image 6">
+                    </div>
+                    <div class="image-container medium">
+                        <img src="about2.png" alt="Slide Image 7">
+                    </div>
+                    <div class="image-container large">
+                        <img src="aid4.jpg" alt="Slide Image 8">
+                    </div>
+                    <div class="image-container small">
+                        <img src="aid2.jpg" alt="Slide Image 9">
+                    </div>
+                </div>
+                <div class="details">
+                    What We Did:<br>
+                    ● Impact Analysis<br>
+                    ● Venue Design<br>
+                    ● Staffing Solutions<br>
+                    ● Comprehensive Reporting<br><br>
+                    More about what we did: Detailed description here...
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Company 6 -->
+        <div class="section" onclick="toggleVisibility('company1')">
+            <div class="title">Company 6, Industry: Fashion</div>
+            <div class="subtext">Explore the Project</div>
+            <div class="hidden-section" id="company1">
+                <div class="close-button" onclick="toggleVisibility('company1')">X</div>
+                <div class="image-wrapper">
+                    <div class="image-container large">
+                        <img src="aid4.jpg" alt="Slide Image 1">
+                    </div>
+                    <div class="image-container medium">
+                        <img src="about1.png" alt="Slide Image 2">
+                    </div>
+                    <div class="image-container small">
+                        <img src="aid2.jpg" alt="Slide Image 3">
+                    </div>
+                    <div class="image-container medium">
+                        <img src="about4.png" alt="Slide Image 4">
+                    </div>
+                    <div class="image-container large">
+                        <img src="about3.png" alt="Slide Image 5">
+                    </div>
+                    <div class="image-container small">
+                        <img src="about1.png" alt="Slide Image 6">
+                    </div>
+                    <div class="image-container medium">
+                        <img src="about2.png" alt="Slide Image 7">
+                    </div>
+                    <div class="image-container large">
+                        <img src="aid4.jpg" alt="Slide Image 8">
+                    </div>
+                    <div class="image-container small">
+                        <img src="aid2.jpg" alt="Slide Image 9">
+                    </div>
+                </div>
+                <div class="details">
+                    What We Did:<br>
+                    ● Impact Analysis<br>
+                    ● Venue Design<br>
+                    ● Staffing Solutions<br>
+                    ● Comprehensive Reporting<br><br>
+                    More about what we did: Detailed description here...
+                </div>
+            </div>
+        </div>
 
     </div>
 
