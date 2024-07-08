@@ -44,33 +44,37 @@
         }
 
         .section {
-            display: flex;
-            justify-content: flex-start;
-            align-items: flex-start;
             width: 100%;
             margin: 40px 0;
+            cursor: pointer;
         }
 
-        .text {
-            max-width: 40%;
-            margin-right: 20px;
-        }
-
-        .text .title {
+        .title {
             font-size: 50px;
             font-family: 'Anton', sans-serif;
+            margin-bottom: 10px;
         }
 
-        .text .subtext {
+        .subtext {
             font-size: 24px;
             font-family: 'Shadows Into Light', cursive;
         }
 
+        .hidden-section {
+            display: none;
+            transition: all 0.3s ease;
+        }
+
+/* CSS styles remain the same, ensure you have the existing styles from previous examples */
+.hidden-section.visible {
+    display: block;
+}
+
         .image-wrapper {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             grid-gap: 20px;
-            width: 60%;
+            margin-top: 20px;
         }
 
         .image-container {
@@ -88,12 +92,18 @@
             transform: scale(1.1);
         }
 
+        .details {
+            font-family: 'Shadows Into Light', cursive;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
         @media (max-width: 768px) {
-            .text .title {
+            .title {
                 font-size: 30px;
             }
 
-            .text .subtext {
+            .subtext {
                 font-size: 18px;
             }
 
@@ -116,191 +126,212 @@
     </div>
     <div class="content">
         <!-- Company 1 -->
-        <div class="section">
-            <div class="text">
-                <div class="title">Hub of African’s Fashion Week (HAFW), Industry: Fashion</div>
-                <div class="subtext">
+        <div class="section" onclick="toggleVisibility('company1')">
+            <div class="title">Hub of African’s Fashion Week (HAFW), Industry: Fashion</div>
+            <div class="subtext">Click to see the project's images</div>
+            <div class="hidden-section" id="company1">
+                <div class="image-wrapper">
+                    <div class="image-container">
+                        <img src="aid2.jpg" alt="Slide Image 1">
+                    </div>
+                    <div class="image-container">
+                        <img src="about1.png" alt="Slide Image 2">
+                    </div>
+                    <div class="image-container">
+                        <img src="aid4.jpg" alt="Slide Image 3">
+                    </div>
+                    <div class="image-container">
+                        <img src="about2.png" alt="Slide Image 4">
+                    </div>
+                    <div class="image-container">
+                        <img src="about3.png" alt="Slide Image 5">
+                    </div>
+                </div>
+                <div class="details">
                     What We Did:<br>
                     ● Impact Analysis<br>
                     ● Venue Design<br>
                     ● Staffing Solutions<br>
-                    ● Comprehensive Reporting
-                </div>
-            </div>
-            <div class="image-wrapper">
-                <div class="image-container">
-                    <img src="psy11.jpg" alt="Slide Image 1">
-                </div>
-                <div class="image-container">
-                    <img src="about1.png" alt="Slide Image 2">
-                </div>
-                <div class="image-container">
-                    <img src="image4.jpg" alt="Slide Image 3">
-                </div>
-                <div class="image-container">
-                    <img src="image5.jpg" alt="Slide Image 4">
-                </div>
-                <div class="image-container">
-                    <img src="psy11.jpg" alt="Slide Image 5">
+                    ● Comprehensive Reporting<br><br>
+                    More about what we did: We conducted an in-depth impact analysis to understand the potential outcomes of the event. Our team designed the venue layout to optimize attendee experience and logistics. We provided top-notch staffing solutions to ensure smooth operations throughout the event. Finally, we delivered comprehensive reporting to evaluate the event's success and areas for improvement.
                 </div>
             </div>
         </div>
+
         <!-- Repeat for each company -->
         <!-- Company 2 -->
-        <div class="section">
-            <div class="text">
-                <div class="title">Company 2, Industry: Example</div>
-                <div class="subtext">
+        <div class="section" onclick="toggleVisibility('company2')">
+            <div class="title">Company 2, Industry: Example</div>
+            <div class="subtext">Click to see the project's images</div>
+            <div class="hidden-section" id="company2">
+                <div class="image-wrapper">
+                    <div class="image-container">
+                        <img src="psy11.jpg" alt="Slide Image 1">
+                    </div>
+                    <div class="image-container">
+                        <img src="about1.png" alt="Slide Image 2">
+                    </div>
+                    <div class="image-container">
+                        <img src="image4.jpg" alt="Slide Image 3">
+                    </div>
+                    <div class="image-container">
+                        <img src="image5.jpg" alt="Slide Image 4">
+                    </div>
+                    <div class="image-container">
+                        <img src="psy11.jpg" alt="Slide Image 5">
+                    </div>
+                </div>
+                <div class="details">
                     What We Did:<br>
                     ● Example Task 1<br>
                     ● Example Task 2<br>
                     ● Example Task 3<br>
-                    ● Example Task 4
-                </div>
-            </div>
-            <div class="image-wrapper">
-                <div class="image-container">
-                    <img src="psy11.jpg" alt="Slide Image 1">
-                </div>
-                <div class="image-container">
-                    <img src="about1.png" alt="Slide Image 2">
-                </div>
-                <div class="image-container">
-                    <img src="image4.jpg" alt="Slide Image 3">
-                </div>
-                <div class="image-container">
-                    <img src="image5.jpg" alt="Slide Image 4">
-                </div>
-                <div class="image-container">
-                    <img src="psy11.jpg" alt="Slide Image 5">
+                    ● Example Task 4<br><br>
+                    More about what we did: Detailed description here...
                 </div>
             </div>
         </div>
 
         <!-- Repeat for all companies -->
         <!-- Company 3 -->
-        <div class="section">
-            <div class="text">
-                <div class="title">Company 3, Industry: Example</div>
-                <div class="subtext">
+        <div class="section" onclick="toggleVisibility('company3')">
+            <div class="title">Company 3, Industry: Example</div>
+            <div class="subtext">Click to see the project's images</div>
+            <div class="hidden-section" id="company3">
+                <div class="image-wrapper">
+                    <div class="image-container">
+                        <img src="psy11.jpg" alt="Slide Image 1">
+                    </div>
+                    <div class="image-container">
+                        <img src="about1.png" alt="Slide Image 2">
+                    </div>
+                    <div class="image-container">
+                        <img src="image4.jpg" alt="Slide Image 3">
+                    </div>
+                    <div class="image-container">
+                        <img src="image5.jpg" alt="Slide Image 4">
+                    </div>
+                    <div class="image-container">
+                        <img src="psy11.jpg" alt="Slide Image 5">
+                    </div>
+                </div>
+                <div class="details">
                     What We Did:<br>
                     ● Example Task 1<br>
                     ● Example Task 2<br>
                     ● Example Task 3<br>
-                    ● Example Task 4
-                </div>
-            </div>
-            <div class="image-wrapper">
-                <div class="image-container">
-                    <img src="psy11.jpg" alt="Slide Image 1">
-                </div>
-                <div class="image-container">
-                    <img src="about1.png" alt="Slide Image 2">
-                </div>
-                <div class="image-container">
-                    <img src="image4.jpg" alt="Slide Image 3">
-                </div>
-                <div class="image-container">
-                    <img src="image5.jpg" alt="Slide Image 4">
-                </div>
-                <div class="image-container">
-                    <img src="psy11.jpg" alt="Slide Image 5">
+                    ● Example Task 4<br><br>
+                    More about what we did: Detailed description here...
                 </div>
             </div>
         </div>
 
         <!-- Repeat for Company 4 -->
-        <div class="section">
-            <div class="text">
-                <div class="title">Company 4, Industry: Example</div>
-                <div class="subtext">
+        <div class="section" onclick="toggleVisibility('company4')">
+            <div class="title">Company 4, Industry: Example</div>
+            <div class="subtext">Click to see the project's images</div>
+            <div class="hidden-section" id="company4">
+                <div class="image-wrapper">
+                    <div class="image-container">
+                        <img src="psy11.jpg" alt="Slide Image 1">
+                    </div>
+                    <div class="image-container">
+                        <img src="about1.png" alt="Slide Image 2">
+                    </div>
+                    <div class="image-container">
+                        <img src="image4.jpg" alt="Slide Image 3">
+                    </div>
+                    <div class="image-container">
+                        <img src="image5.jpg" alt="Slide Image 4">
+                    </div>
+                    <div class="image-container">
+                        <img src="psy11.jpg" alt="Slide Image 5">
+                    </div>
+                </div>
+                <div class="details">
                     What We Did:<br>
                     ● Example Task 1<br>
                     ● Example Task 2<br>
                     ● Example Task 3<br>
-                    ● Example Task 4
-                </div>
-            </div>
-            <div class="image-wrapper">
-                <div class="image-container">
-                    <img src="psy11.jpg" alt="Slide Image 1">
-                </div>
-                <div class="image-container">
-                    <img src="about1.png" alt="Slide Image 2">
-                </div>
-                <div class="image-container">
-                    <img src="image4.jpg" alt="Slide Image 3">
-                </div>
-                <div class="image-container">
-                    <img src="image5.jpg" alt="Slide Image 4">
-                </div>
-                <div class="image-container">
-                    <img src="psy11.jpg" alt="Slide Image 5">
+                    ● Example Task 4<br><br>
+                    More about what we did: Detailed description here...
                 </div>
             </div>
         </div>
 
-        <!-- Repeat for Company 5 -->
-        <div class="section">
-            <div class="text">
-                <div class="title">Company 5, Industry: Example</div>
-                <div class="subtext">
-                    What We Did:<br>
-                    ● Example Task 1<br>
-                    ● Example Task 2<br>
-                    ● Example Task 3<br>
-                    ● Example Task 4
-                </div>
+       <!-- Company 5 -->
+<div class="section" onclick="toggleVisibility('company5')">
+    <div class="title">Company 5, Industry: Example</div>
+    <div class="subtext">Click to see the project's images</div>
+    <div class="hidden-section" id="company5">
+        <div class="image-wrapper">
+            <div class="image-container">
+                <img src="psy11.jpg" alt="Slide Image 1">
             </div>
-            <div class="image-wrapper">
-                <div class="image-container">
-                    <img src="psy11.jpg" alt="Slide Image 1">
-                </div>
-                <div class="image-container">
-                    <img src="about1.png" alt="Slide Image 2">
-                </div>
-                <div class="image-container">
-                    <img src="image4.jpg" alt="Slide Image 3">
-                </div>
-                <div class="image-container">
-                    <img src="image5.jpg" alt="Slide Image 4">
-                </div>
-                <div class="image-container">
-                    <img src="psy11.jpg" alt="Slide Image 5">
-                </div>
+            <div class="image-container">
+                <img src="about1.png" alt="Slide Image 2">
+            </div>
+            <div class="image-container">
+                <img src="image4.jpg" alt="Slide Image 3">
+            </div>
+            <div class="image-container">
+                <img src="image5.jpg" alt="Slide Image 4">
+            </div>
+            <div class="image-container">
+                <img src="psy11.jpg" alt="Slide Image 5">
             </div>
         </div>
-
-
-        <div class="section">
-            <div class="text">
-                <div class="title">Company 6, Industry: Example</div>
-                <div class="subtext">
-                    What We Did:<br>
-                    ● Example Task 1<br>
-                    ● Example Task 2<br>
-                    ● Example Task 3<br>
-                    ● Example Task 4
-                </div>
-            </div>
-            <div class="image-wrapper">
-                <div class="image-container">
-                    <img src="aid2.jpg" alt="Slide Image 1">
-                </div>
-                <div class="image-container">
-                    <img src="about1.png" alt="Slide Image 2">
-                </div>
-                <div class="image-container">
-                    <img src="about2.png" alt="Slide Image 3">
-                </div>
-                <div class="image-container">
-                    <img src="aid4.jpg" alt="Slide Image 4">
-                </div>
-                <div class="image-container">
-                    <img src="about3.png" alt="Slide Image 5">
-                </div>
-            </div>
+        <div class="details">
+            What We Did:<br>
+            ● Example Task 1<br>
+            ● Example Task 2<br>
+            ● Example Task 3<br>
+            ● Example Task 4<br><br>
+            More about what we did: Detailed description here...
         </div>
     </div>
+</div>
+
+<!-- Company 6 -->
+<div class="section" onclick="toggleVisibility('company6')">
+    <div class="title">Company 6, Industry: Example</div>
+    <div class="subtext">Click to see the project's images</div>
+    <div class="hidden-section" id="company6">
+        <div class="image-wrapper">
+            <div class="image-container">
+                <img src="psy11.jpg" alt="Slide Image 1">
+            </div>
+            <div class="image-container">
+                <img src="about1.png" alt="Slide Image 2">
+            </div>
+            <div class="image-container">
+                <img src="image4.jpg" alt="Slide Image 3">
+            </div>
+            <div class="image-container">
+                <img src="image5.jpg" alt="Slide Image 4">
+            </div>
+            <div class="image-container">
+                <img src="psy11.jpg" alt="Slide Image 5">
+            </div>
+        </div>
+        <div class="details">
+            What We Did:<br>
+            ● Example Task 1<br>
+            ● Example Task 2<br>
+            ● Example Task 3<br>
+            ● Example Task 4<br><br>
+            More about what we did: Detailed description here...
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleVisibility(id) {
+        const section = document.getElementById(id);
+        section.classList.toggle('visible');
+    }
+</script>
+
 </body>
 </html>
+
