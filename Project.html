@@ -67,13 +67,14 @@
 
         .circle {
             position: relative;
-            width: 400px;
-            height: 400px;
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: transform 0.3s ease;
         }
 
         .circle img {
@@ -116,6 +117,61 @@
             opacity: 1;
         }
 
+        .oval-wrapper {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .oval-wrapper .oval {
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border: 10px solid black;
+            border-radius: 50%;
+        }
+
+        .small-circle {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .small-circle img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .small-circle:hover img {
+            transform: scale(1.1);
+        }
+
+        .small-arrow {
+            position: absolute;
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .small-arrow:hover {
+            color: #FB8500;
+        }
+
         @media (max-width: 768px) {
             .text .title {
                 font-size: 30px;
@@ -125,9 +181,15 @@
                 font-size: 18px;
             }
 
+            .oval-wrapper,
             .circle {
-                width: 300px;
-                height: 300px;
+                width: 200px;
+                height: 200px;
+            }
+
+            .small-circle {
+                width: 150px;
+                height: 150px;
             }
 
             .slider .slide {
@@ -145,6 +207,7 @@
         <a href="connect.html">Connect</a>
     </div>
     <div class="content">
+        <!-- Company 1 -->
         <div class="section">
             <div class="text">
                 <div class="title">Hub of African’s Fashion Week (HAFW), Industry: Fashion</div>
@@ -156,19 +219,170 @@
                     ● Comprehensive Reporting
                 </div>
             </div>
-            <div class="circle">
-                <img src="your-image.jpg" alt="Fashion Week Image">
+            <div class="oval-wrapper">
+                <div class="oval"></div>
+                <img src="aid2.jpg" alt="Fashion Week Image">
                 <div class="arrow">→</div>
+            </div>
+            <div class="small-circle">
+                <img src="aid4.jpg" alt="Slide Image 1">
+                <div class="small-arrow">→</div>
             </div>
         </div>
         <div class="slider">
-            <div class="slide"><img src="image1.jpg" alt="Slide Image 1"></div>
-            <div class="slide"><img src="image2.jpg" alt="Slide Image 2"></div>
-            <div class="slide"><img src="image3.jpg" alt="Slide Image 3"></div>
+            <div class="slide"><img src="psy11.jpg" alt="Slide Image 2"></div>
+            <div class="slide"><img src="about1.png" alt="Slide Image 3"></div>
             <div class="slide"><img src="image4.jpg" alt="Slide Image 4"></div>
             <div class="slide"><img src="image5.jpg" alt="Slide Image 5"></div>
         </div>
+
+        <!-- Repeat for each company -->
+        <!-- Company 2 -->
+        <div class="section">
+            <div class="text">
+                <div class="title">Company 2, Industry: Example</div>
+                <div class="subtext">
+                    What We Did:<br>
+                    ● Example Task 1<br>
+                    ● Example Task 2<br>
+                    ● Example Task 3<br>
+                    ● Example Task 4
+                </div>
+            </div>
+            <div class="oval-wrapper">
+                <div class="oval"></div>
+                <img src="aid2.jpg" alt="Example Image 1">
+                <div class="arrow">→</div>
+            </div>
+            <div class="small-circle">
+                <img src="aid4.jpg" alt="Example Image 2">
+                <div class="small-arrow">→</div>
+            </div>
+        </div>
+        <div class="slider">
+            <div class="slide"><img src="psy11.jpg" alt="Slide Image 2"></div>
+            <div class="slide"><img src="about1.png" alt="Slide Image 3"></div>
+            <div class="slide"><img src="image4.jpg" alt="Slide Image 4"></div>
+            <div class="slide"><img src="image5.jpg" alt="Slide Image 5"></div>
+        </div>
+
+        <!-- Repeat the above structure for all 6 companies -->
+        <!-- Add more sections and sliders for each company as needed -->
+<div class="section">
+            <div class="text">
+                <div class="title">Company 3, Industry: Example</div>
+                <div class="subtext">
+                    What We Did:<br>
+                    ● Example Task 1<br>
+                    ● Example Task 2<br>
+                    ● Example Task 3<br>
+                    ● Example Task 4
+                </div>
+            </div>
+            <div class="oval-wrapper">
+                <div class="oval"></div>
+                <img src="aid2.jpg" alt="Example Image 1">
+                <div class="arrow">→</div>
+            </div>
+            <div class="small-circle">
+                <img src="aid4.jpg" alt="Example Image 2">
+                <div class="small-arrow">→</div>
+            </div>
+        </div>
+        <div class="slider">
+            <div class="slide"><img src="psy11.jpg" alt="Slide Image 2"></div>
+            <div class="slide"><img src="about1.png" alt="Slide Image 3"></div>
+            <div class="slide"><img src="image4.jpg" alt="Slide Image 4"></div>
+            <div class="slide"><img src="image5.jpg" alt="Slide Image 5"></div>
+        </div>
+
+
+        <div class="section">
+            <div class="text">
+                <div class="title">Company 4, Industry: Example</div>
+                <div class="subtext">
+                    What We Did:<br>
+                    ● Example Task 1<br>
+                    ● Example Task 2<br>
+                    ● Example Task 3<br>
+                    ● Example Task 4
+                </div>
+            </div>
+            <div class="oval-wrapper">
+                <div class="oval"></div>
+                <img src="aid2.jpg" alt="Example Image 1">
+                <div class="arrow">→</div>
+            </div>
+            <div class="small-circle">
+                <img src="aid4.jpg" alt="Example Image 2">
+                <div class="small-arrow">→</div>
+            </div>
+        </div>
+        <div class="slider">
+            <div class="slide"><img src="psy11.jpg" alt="Slide Image 2"></div>
+            <div class="slide"><img src="about1.png" alt="Slide Image 3"></div>
+            <div class="slide"><img src="image4.jpg" alt="Slide Image 4"></div>
+            <div class="slide"><img src="image5.jpg" alt="Slide Image 5"></div>
+        </div>
+
+
+        <div class="section">
+            <div class="text">
+                <div class="title">Company 5, Industry: Example</div>
+                <div class="subtext">
+                    What We Did:<br>
+                    ● Example Task 1<br>
+                    ● Example Task 2<br>
+                    ● Example Task 3<br>
+                    ● Example Task 4
+                </div>
+            </div>
+            <div class="oval-wrapper">
+                <div class="oval"></div>
+                <img src="aid2.jpg" alt="Example Image 1">
+                <div class="arrow">→</div>
+            </div>
+            <div class="small-circle">
+                <img src="aid4.jpg" alt="Example Image 2">
+                <div class="small-arrow">→</div>
+            </div>
+        </div>
+        <div class="slider">
+            <div class="slide"><img src="psy11.jpg" alt="Slide Image 2"></div>
+            <div class="slide"><img src="about1.png" alt="Slide Image 3"></div>
+            <div class="slide"><img src="image4.jpg" alt="Slide Image 4"></div>
+            <div class="slide"><img src="image5.jpg" alt="Slide Image 5"></div>
+        </div>
+
+        <div class="section">
+            <div class="text">
+                <div class="title">Company 6, Industry: Example</div>
+                <div class="subtext">
+                    What We Did:<br>
+                    ● Example Task 1<br>
+                    ● Example Task 2<br>
+                    ● Example Task 3<br>
+                    ● Example Task 4
+                </div>
+            </div>
+            <div class="oval-wrapper">
+                <div class="oval"></div>
+                <img src="aid2.jpg" alt="Example Image 1">
+                <div class="arrow">→</div>
+            </div>
+            <div class="small-circle">
+                <img src="aid4.jpg" alt="Example Image 2">
+                <div class="small-arrow">→</div>
+            </div>
+        </div>
+        <div class="slider">
+            <div class="slide"><img src="psy11.jpg" alt="Slide Image 2"></div>
+            <div class="slide"><img src="about1.png" alt="Slide Image 3"></div>
+            <div class="slide"><img src="image4.jpg" alt="Slide Image 4"></div>
+            <div class="slide"><img src="image5.jpg" alt="Slide Image 5"></div>
+        </div>
+
+
     </div>
 </body>
 </html>
-
