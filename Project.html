@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - LaMonje</title>
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chakra-ui/core/dist/chakra.min.css">
     <style>
         body {
             background-color: #CDF2FA;
             color: #000000;
-            font-family: 'Anton', sans-serif;
+            font-family: 'Shadows Into Light', cursive;
             margin: 0;
             padding: 0;
             opacity: 0;
@@ -38,6 +37,7 @@
             margin: 0 15px;
             transition: color 0.3s ease;
             font-weight: bold; /* Make navigation links bold */
+            font-family: 'Anton', sans-serif; /* Use Anton font for navigation links */
         }
 
         .navbar a:hover {
@@ -49,7 +49,7 @@
             font-size: 150px;
             margin: 40px 0;
             animation: slide-in 2s ease-out;
-            font-weight: bold; /* Make main header bold */
+            font-family: 'Anton', sans-serif; /* Use Anton font for main header */
         }
 
         @keyframes slide-in {
@@ -72,33 +72,34 @@
         .company-name {
             font-size: 40px;
             margin-bottom: 20px;
+            font-family: 'Anton', sans-serif; /* Use Anton font for company name */
         }
 
         .company-images {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 images per row */
             gap: 20px;
             margin: 20px auto; /* Center-align images and add margin */
         }
 
         .company-images img {
-            width: 200px;
+            width: 100%;
             height: auto;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 100%; /* Ensure images do not exceed container width */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Light shadow effect */
             transition: transform 0.3s ease;
         }
 
         .company-images img:hover {
-            transform: scale(1.1);
+            transform: scale(1.05); /* Slightly increased scale on hover */
         }
 
         .project-description {
             font-size: 18px;
             line-height: 1.6;
             margin-bottom: 20px;
+            font-family: 'Shadows Into Light', cursive; /* Use handwritten font for project description */
         }
 
         .footer {
@@ -151,41 +152,40 @@
 
     <!-- Example of a company section -->
     <div class="company-section">
-        <div class="company-name">Company Name</div>
+        <div class="company-name">Company Name 1</div>
         <div class="company-images">
-            <img src="company1_image1.jpg" alt="Project Image">
-            <img src="company1_image2.jpg" alt="Project Image">
-            <img src="company1_image3.jpg" alt="Project Image">
-            <img src="company1_image4.jpg" alt="Project Image">
-            <img src="company1_image5.jpg" alt="Project Image">
-            <img src="company1_image6.jpg" alt="Project Image">
-            <img src="company1_image7.jpg" alt="Project Image">
-            <img src="company1_image8.jpg" alt="Project Image">
+            <img src="company1_image1.jpg" alt="Project Image 1">
+            <img src="company1_image2.jpg" alt="Project Image 2">
+            <img src="company1_image3.jpg" alt="Project Image 3">
+            <img src="company1_image4.jpg" alt="Project Image 4">
+            <img src="company1_image5.jpg" alt="Project Image 5">
+            <img src="company1_image6.jpg" alt="Project Image 6">
+            <img src="company1_image7.jpg" alt="Project Image 7">
+            <img src="company1_image8.jpg" alt="Project Image 8">
         </div>
         <div class="project-description">
-            Description of the project for Company Name goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac magna vehicula, fermentum ex ac, commodo augue.
+            Description of the project for Company Name 1 goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac magna vehicula, fermentum ex ac, commodo augue.
         </div>
     </div>
 
     <!-- Repeat the company section for each company -->
-    <!-- You can copy and paste the above company section to add more companies -->
+    <!-- Example of another company section -->
     <div class="company-section">
-        <div class="company-name">Company Name</div>
+        <div class="company-name">Company Name 2</div>
         <div class="company-images">
-            <img src="company2_image1.jpg" alt="Project Image">
-            <img src="company2_image2.jpg" alt="Project Image">
-            <img src="company2_image3.jpg" alt="Project Image">
-            <img src="company2_image4.jpg" alt="Project Image">
-            <img src="company2_image5.jpg" alt="Project Image">
-            <img src="company2_image6.jpg" alt="Project Image">
-            <img src="company2_image7.jpg" alt="Project Image">
-            <img src="company2_image8.jpg" alt="Project Image">
+            <img src="company2_image1.jpg" alt="Project Image 1">
+            <img src="company2_image2.jpg" alt="Project Image 2">
+            <img src="company2_image3.jpg" alt="Project Image 3">
+            <img src="company2_image4.jpg" alt="Project Image 4">
+            <img src="company2_image5.jpg" alt="Project Image 5">
+            <img src="company2_image6.jpg" alt="Project Image 6">
+            <img src="company2_image7.jpg" alt="Project Image 7">
+            <img src="company2_image8.jpg" alt="Project Image 8">
         </div>
         <div class="project-description">
-            Description of the project for Company Name goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac magna vehicula, fermentum ex ac, commodo augue.
+            Description of the project for Company Name 2 goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac magna vehicula, fermentum ex ac, commodo augue.
         </div>
     </div>
-
     <!-- Repeat the above company section for each company -->
 
     <script>
