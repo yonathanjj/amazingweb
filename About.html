@@ -43,116 +43,157 @@
             font-family: 'Shadows Into Light', cursive;
         }
 
-        .intro-section, .services-section, .partners-section {
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .intro-section .image-text-group {
+        .circle {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center; /* Centered images */
-            align-items: center; /* Centered paragraphs */
-            margin-bottom: 20px;
+            justify-content: center;
+            align-items: center;
+            width: 80vw;
+            height: 80vw;
+            max-width: 500px;
+            max-height: 500px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            margin: 50px auto;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: opacity 1s ease, transform 1s ease;
         }
 
-        .image-text-group img {
-            width: 270px; /* Increased image size */
-            height: auto;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-            margin-right: 20px; /* Space between image and paragraph */
+        .circle.hidden {
+            opacity: 0;
+            transform: scale(0.5);
         }
 
-        .image-text-group img:hover {
-            transform: scale(1.1);
-        }
-
-        .image-text-group p {
-            flex: 1;
-            margin: 20px;
-            font-family: 'Shadows Into Light', cursive;
-            font-size: 20px;
-            transition: color 0.3s ease;
-            text-align: center; /* Centered text */
-        }
-
-        .services-section .header {
+        .content {
+            margin-top: 50px;
             text-align: center;
             font-size: 36px;
-            margin-bottom: 20px;
+            transition: opacity 1s ease, transform 1s ease;
         }
 
-        .services-section .service-group {
+        .content.hidden {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        .content p {
+            font-size: 24px;
+            font-family: 'Shadows Into Light', cursive;
+        }
+
+        .service-section.hidden {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        .service-section {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 36px;
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .services-list {
+            margin-top: 20px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            gap: 40px;
             flex-wrap: wrap;
         }
 
         .service {
-            width: 30%;
-            margin-bottom: 20px;
+            position: relative;
             cursor: pointer;
-            position: relative; /* Added for positioning arrow */
-            text-align: center; /* Centered text */
-        }
-
-        .service .main-service {
-            font-size: 24px;
-            margin-bottom: 10px;
         }
 
         .service .arrow-down {
-            position: absolute;
-            bottom: -20px; /* Adjust arrow position */
-            left: 50%;
-            transform: translateX(-50%);
+            margin-top: 10px;
             width: 30px;
             height: 30px;
             background-color: #FB8500;
             clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-        }
-
-        .partners-section .header {
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        .partner-logos {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
-            justify-items: center;
-        }
-
-        .partner-logos img {
-            width: 120px; /* Adjusted logo size */
-            height: auto;
             transition: transform 0.3s ease;
         }
 
-        .partner-logos img:hover {
-            transform: scale(1.1);
+        .service:hover .arrow-down {
+            transform: scale(1.2);
         }
 
-        @media (max-width: 768px) {
-            .image-text-group img {
-                margin-right: 0; /* Remove margin on smaller screens */
-            }
+        .service .dropdown {
+            display: none;
+            margin-top: 10px;
+            text-align: center;
+        }
 
-            .image-text-group p {
-                margin: 20px 0; /* Adjust margin for better spacing */
-            }
+        .service.open .dropdown {
+            display: block;
+        }
 
-            .service {
-                width: 100%; /* Full width on smaller screens */
-            }
+        .service .dropdown p {
+            margin: 5px 0;
+            font-size: 20px;
+            font-family: 'Shadows Into Light', cursive;
+        }
 
-            .partner-logos {
-                grid-template-columns: repeat(2, 1fr); /* Two columns for mobile view */
-            }
+        .image-with-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .image-with-text img {
+            max-width: 150px;
+            max-height: 150px;
+            object-fit: contain;
+        }
+
+        .partners-section.hidden {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        .partners-section {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 36px;
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .partners-section img {
+            max-width: 200px;
+            max-height: 200px;
+            margin: 20px;
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        /* New section styles */
+        .partners-header {
+            text-align: center;
+            font-size: 50px;
+            margin: 50px 0;
+            font-family: 'Anton', sans-serif;
+            transform: translateY(-100px);
+            opacity: 0;
+            transition: transform 1s ease, opacity 1s ease;
+        }
+
+        .partners-header.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .partners-list {
+            text-align: center;
+            margin-top: 20px;
+            font-family: 'Shadows Into Light', cursive;
+            font-size: 24px;
+        }
+
+        .partners-list p {
+            margin: 10px 0;
         }
     </style>
 </head>
@@ -164,63 +205,188 @@
         <a href="connect.html">Connect</a>
     </div>
 
-    <div class="header">About Us</div>
-
-    <div class="intro-section">
-        <div class="image-text-group">
-            <img src="about1.png" alt="Image 1">
-            <p>Paragraph 1 about the image and introduction.</p>
-        </div>
-        <div class="image-text-group">
-            <img src="about2.png" alt="Image 2">
-            <p>Paragraph 2 about the image and introduction.</p>
-        </div>
-        <div class="image-text-group">
-            <img src="about3.png" alt="Image 3">
-            <p>Paragraph 3 about the image and introduction.</p>
-        </div>
-        <div class="image-text-group">
-            <img src="about4.png" alt="Image 4">
-            <p>Paragraph 4 about the image and introduction.</p>
+    <div class="circle" id="circle">
+        <div>
+            <h1 class="header">Our Story</h1>
+            <p>La Monje, founded by Yeabkal Demissew and Bethlehem Ghidey, isn't  just a creative firm;<br> it's a data-driven storytelling powerhouse. We  combine strategic analysis with captivating narratives to craft<br> impactful  events curate compelling multimedia content, and develop innovative  marketing campaigns.</p>
         </div>
     </div>
 
-    <div class="services-section">
-        <div class="header">Our Services</div>
-        <div class="service-group">
-            <div class="service">
-                <div class="main-service">Main Service 1</div>
-                <div class="arrow-down"></div> <!-- Down arrow indicator -->
+    <div class="content hidden" id="content1">
+        <div class="image-with-text">
+            <h1>Our Structure</h1>
+            <img src="path/to/goal_image.jpg" alt="Goal Image">
+        </div>
+        <p>We operate at the intersection of creativity and data to craft impactful  events, compelling multimedia content,<br> and strategic marketing campaigns. This  two-pronged approach ensures our work resonates with,<br> target audiences and drives tangible  results for our clients</p>
+    </div>
+
+    <div class="content hidden" id="content2">
+        <div class="image-with-text">
+            <h1>Our Approach</h1>
+            <img src="path/to/approach_image.jpg" alt="Approach Image">
+        </div>
+        <p>: We believe powerful storytelling is the key to forging connections and achieving results.<br> We combine strategic data analysis with captivating narratives. We're not just storytellers;<br> we're passionate creatives who translate your vision into experiences that resonate and drive results.</p>
+    </div>
+
+    <div class="content hidden" id="content3">
+        <div class="image-with-text">
+            <h1>Our Model</h1>
+            <img src="path/to/model_image.jpg" alt="Model Image">
+        </div>
+        <p>: We operate under a Management by Objectives (MBO) model. We collaboratively set clear,<br> measurable goals with our clients at the outset of each project. This ensures alignment between<br> our efforts and their desired outcomes, fostering transparency and driving results.</p>
+    </div>
+
+    <div class="content hidden" id="content4">
+        <div class="image-with-text">
+            <h1>Human Right</h1>
+            <img src="path/to/human_right_image.jpg" alt="Human Right Image">
+        </div>
+        <p>humans are big and beautiful</p>
+    </div>
+
+    <div class="service-section hidden" id="services">
+        <h1>Our Services</h1>
+        <div class="services-list">
+            <div class="service" onclick="toggleDropdown(this)">
+                <div class="main-service">Impactful Events</div>
+                <div class="arrow-down"></div>
+                <div class="dropdown">
+                    <p>food and aid</p>
+                    <p>food and aid</p>
+                    <p>food and aid</p>
+                    <p>food and aid</p>
+                    <p>food and aid</p>
+                    <p>food and aid</p>
+                </div>
             </div>
-            <div class="service">
-                <div class="main-service">Main Service 2</div>
-                <div class="arrow-down"></div> <!-- Down arrow indicator -->
+            <div class="service" onclick="toggleDropdown(this)">
+                <div class="main-service">Compelling Content</div>
+                <div class="arrow-down"></div>
+                <div class="dropdown">
+                    <p>food and aid</p>
+                    <p>food and aid</p>
+                    <p>food and aid</p>
+                    <p>food and aid</p>
+                    <p>food and aid</p>
+                    <p>food and aid</p>
+                </div>
             </div>
-            <div class="service">
-                <div class="main-service">Main Service 3</div>
-                <div class="arrow-down"></div> <!-- Down arrow indicator -->
-            </div>
-            <div class="service">
-                <div class="main-service">Main Service 4</div>
-                <div class="arrow-down"></div> <!-- Down arrow indicator -->
+            <div class="service" onclick="toggleDropdown(this)">
+                <div class="main-service">Strategic Marketing</div>
+                <div class="arrow-down"></div>
+                <div class="dropdown">
+                    <p>food and aid</p>
+                    <p>food and aid</p>
+                    <p>food and aid</p>
+                    <p>food and aid</p>
+                    <p>food and aid</p>
+                    <p>food and aid</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="partners-section">
-        <div class="header">Partners & Collaboration</div>
-        <div class="partner-logos">
-            <img src="logo1.png" alt="Company 1">
-            <img src="logo2.png" alt="Company 2">
-            <img src="logo3.png" alt="Company 3">
-            <img src="logo4.png" alt="Company 4">
-            <img src="logo5.png" alt="Company 5">
-            <img src="logo6.png" alt="Company 6">
-            <img src="logo7.png" alt="Company 7">
-            <img src="logo8.png" alt="Company 8">
-            <img src="logo9.png" alt="Company 9">
-            <img src="logo10.png" alt="Company 10">
+    <div class="partners-section hidden" id="partners">
+        <h1>Partners And Collab</h1>
+        <div class="partners-list">
+            <img src="path/to/partner_image1.jpg" alt="Partner Image 1">
+            <img src="path/to/partner_image2.jpg" alt="Partner Image 2">
+            <img src="path/to/partner_image3.jpg" alt="Partner Image 3">
+            <img src="path/to/partner_image4.jpg" alt="Partner Image 4">
+            <img src="path/to/partner_image5.jpg" alt="Partner Image 5">
+            <img src="path/to/partner_image6.jpg" alt="Partner Image 6">
+            <img src="path/to/partner_image7.jpg" alt="Partner Image 7">
+            <img src="path/to/partner_image8.jpg" alt="Partner Image 8">
+            <img src="path/to/partner_image9.jpg" alt="Partner Image 9">
+            <img src="path/to/partner_image10.jpg" alt="Partner Image 10">
         </div>
     </div>
+
+    <!-- New Header and Text Section -->
+    <div class="partners-header hidden" id="partners-header">
+        Partners And Collab
+    </div>
+    <div class="partners-list hidden" id="partners-text">
+        <p>Action Aid Ethiopia</p>
+        <p>Aslan Business Group</p>
+        <p>Hub of African Fashion Week</p>
+        <p>Gulit Saving and Credit Cooperative Association</p>
+        <p>Gulit Mart</p>
+        <p>Golden Valley School of Business and Technology</p>
+        <p>Yewenze Lij Economic Forum</p>
+        <p>Big Harvest</p>
+        <p>Ice Hawassa</p>
+        <p>Rotaract Club of Hawassa</p>
+    </div>
+
+    <script>
+        function toggleDropdown(service) {
+            service.classList.toggle('open');
+        }
+
+        window.addEventListener('scroll', () => {
+            const circle = document.getElementById('circle');
+            const content1 = document.getElementById('content1');
+            const content2 = document.getElementById('content2');
+            const content3 = document.getElementById('content3');
+            const content4 = document.getElementById('content4');
+            const services = document.getElementById('services');
+            const partners = document.getElementById('partners');
+            const partnersHeader = document.getElementById('partners-header');
+            const partnersText = document.getElementById('partners-text');
+
+            const triggerHeight = window.innerHeight / 1.5;
+
+            if (circle.getBoundingClientRect().top < triggerHeight) {
+                circle.classList.add('hidden');
+            } else {
+                circle.classList.remove('hidden');
+            }
+
+            if (content1.getBoundingClientRect().top < triggerHeight) {
+                content1.classList.remove('hidden');
+            } else {
+                content1.classList.add('hidden');
+            }
+
+            if (content2.getBoundingClientRect().top < triggerHeight) {
+                content2.classList.remove('hidden');
+            } else {
+                content2.classList.add('hidden');
+            }
+
+            if (content3.getBoundingClientRect().top < triggerHeight) {
+                content3.classList.remove('hidden');
+            } else {
+                content3.classList.add('hidden');
+            }
+
+            if (content4.getBoundingClientRect().top < triggerHeight) {
+                content4.classList.remove('hidden');
+            } else {
+                content4.classList.add('hidden');
+            }
+
+            if (services.getBoundingClientRect().top < triggerHeight) {
+                services.classList.remove('hidden');
+            } else {
+                services.classList.add('hidden');
+            }
+
+            if (partners.getBoundingClientRect().top < triggerHeight) {
+                partners.classList.remove('hidden');
+            } else {
+                partners.classList.add('hidden');
+            }
+
+            if (partnersHeader.getBoundingClientRect().top < triggerHeight) {
+                partnersHeader.classList.add('visible');
+                partnersText.classList.add('visible');
+            } else {
+                partnersHeader.classList.remove('visible');
+                partnersText.classList.remove('visible');
+            }
+        });
+    </script>
 </body>
 </html>
