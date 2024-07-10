@@ -337,11 +337,28 @@
 
             const triggerHeight = window.innerHeight / 1.5;
 
-            if (circle.getBoundingClientRect().top < triggerHeight) {
+                // Scroll event listener to trigger animations
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+
+            if (scrollY >= 100) {
                 circle.classList.add('hidden');
+                content1.classList.add('visible');
+                content2.classList.add('visible');
+                content3.classList.add('visible');
+                content4.classList.add('visible');
+                services.classList.add('visible');
+                partners.classList.add('visible');
             } else {
                 circle.classList.remove('hidden');
+                content1.classList.remove('visible');
+                content2.classList.remove('visible');
+                content3.classList.remove('visible');
+                content4.classList.remove('visible');
+                services.classList.remove('visible');
+                partners.classList.remove('visible');
             }
+        });
 
             if (content1.getBoundingClientRect().top < triggerHeight) {
                 content1.classList.remove('hidden');
