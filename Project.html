@@ -3,41 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - LaMonje</title>
+    <title>Projects - LaMonje</title>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <style>
-        /* styles.css */
-
         body {
-            background-color: #d2d4c8;
+            background-color: #CDF2FA;
             color: #000000;
             font-family: 'Anton', sans-serif;
             margin: 0;
             padding: 0;
-        }
- .cursor {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            position: absolute;
-            background-color: rgba(251, 133, 0, 0.5); /* Orange color with transparency */
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            transition: background-color 0.3s ease, transform 0.1s ease;
-            z-index: 9999;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
         }
 
-        .trail {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            position: absolute;
-            background-color: rgba(251, 133, 0, 0.5); /* Orange color with transparency */
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            transition: transform 0.1s ease;
-            z-index: 9998;
+        body.loaded {
+            opacity: 1;
         }
+
         .navbar {
             display: flex;
             justify-content: center;
@@ -60,166 +42,105 @@
             color: #000;
         }
 
-        .content {
+        .main-header {
+            text-align: left;
+            font-size: 50px;
+            margin: 40px;
+        }
+
+        .projects-container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-around;
             padding: 20px;
         }
 
-        .section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .project {
+            position: relative;
+            width: 45%;
+            margin: 20px 0;
+            cursor: pointer;
+        }
+
+        .project img {
             width: 100%;
-            margin: 40px 0;
-            cursor: pointer;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
         }
 
-        .title {
-            font-size: 120px; /* Very large header size */
-            margin-bottom: 10px;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s ease; /* Melting effect */
-            animation: floatAnimation 3s infinite alternate; /* Floating animation */
+        .project:hover img {
+            transform: scale(1.05);
         }
 
-        .title:hover {
-            transform: scale(1.1);
-        }
-
-        .subtext {
-            font-size: 36px; /* Larger subtext size */
-            font-weight: bold;
-            color: #FB8500; /* Orange color */
-            text-align: center;
-            margin-top: 10px;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .subtext:hover {
-            color: #FF5733; /* Darker shade of orange */
-        }
-
-        .hidden-section {
-            display: none;
-            position: fixed;
+        .project-overlay {
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 2000;
-            background-color: #212529;
-            padding: 20px;
-            overflow-y: auto; /* Enable scrolling */
-            pointer-events: auto; /* Enable clicking on pop-up */
+            background: rgba(0, 0, 0, 0.5);
+            color: #FFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             opacity: 0;
-            transition: opacity 0.5s ease; /* Fade-in transition */
+            transition: opacity 0.3s ease;
+            border-radius: 20px;
+            font-size: 24px;
         }
 
-        .hidden-section.visible {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start; /* Align to top */
+        .project:hover .project-overlay {
             opacity: 1;
         }
 
-        .close-button {
-            position: absolute;
-            top: 20px;
-            right: 20px; /* Adjusted position */
-            font-size: 32px; /* Increased font size */
-            color: #FB8500; /* Orange color */
-            cursor: pointer;
-            transition: color 0.3s ease;
+        .project-description {
+            margin-top: 10px;
+            font-size: 18px;
+            font-family: 'Shadows Into Light', cursive;
         }
 
-        .close-button:hover {
-            color: #FF5733; /* Darker shade of orange */
+        .see-more {
+            cursor: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDEyIDEyIj4KPHBhdGggZD0iTTAgNGw0LTQgNC00LTEgMS00IDQtMyAzLTQgNC00IDQgMy0zLTQtNEw0IDAgMSAzLTQtM0w0IDQtNCAwIDQgNC04IDggNiA0IDgtNCA0TDIgMCAwbDBsLTIgM2wzIDAgNEw4IDBsLTEgMWwtNC00LTMgM0w0IDBsLTQtNCA0LTRsLTRsLTEgMWw0LTRsNC00LTEgMWw0IDQgMCAwLTIgM2wtMyAwLTRsLTQtNFYwbDQtNGwwLTIgTDMgMGwzIDAgNEw4IDBsLTYgNiAwIDEgM2wtMSAwLTQgNEwwbC00LTQtNCAwYzAtMSAwLTEgMCAwbC0yLTRtNHYwIGwtNCAwIGMtMSAwLTEgMCAwIDBsLTRsLTRsIDAgIGwgMCAtMiAtMyAwIC0zIDAgLTMgNGE0IDAgMCAwIDAgMCAwbC00LTIgM2wwICAzIDIgMG0wLTEgMCAgMG0tNiAwIGwtNC00IG0tMiAxIDIgMCBhNCA0IDAgMCAwIDAgbDIgNHYtMiBvIE0gMCAwbCBjMCAwIDAgMCB2IDIgMiBsLTMgLTRsIDAgMCBMLTRsMCAtMiAwIDAgTCAwIDEgIDAgIEwgMyAwIEwgMGwgMCBmICAwIDEgMG0tMiAyIGwgdjBsIDAgMCAwbCBkIGMgMSAxIDAgMC0gMCAgMC0yLTEgMCBMLTItNC0gMCAzIG0wIDAgMCAtNCwwICIgZmlsbD0iI0ZGOEEwMCIvPgo8L3N2Zz4K'), auto;
         }
 
-        .image-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
+        .expanded-projects {
+            display: none;
             padding: 20px;
-            width: 80%;
-            max-width: 1200px;
         }
 
-        .image-container {
-            flex: 1 1 auto;
-            max-width: 100%;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        .expanded-projects img {
+            width: 30%;
+            margin: 10px;
         }
 
-        .image-container img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .image-container:hover img {
-            transform: scale(1.1);
-        }
-
-        .large {
-            flex-basis: calc(33.33% - 20px);
-        }
-
-        .medium {
-            flex-basis: calc(25% - 20px);
-        }
-
-        .small {
-            flex-basis: calc(16.66% - 20px);
-        }
-
-        .details {
-            margin-top: 20px;
+        .huge-text {
+            font-size: 150px;
+            font-family: 'Anton', sans-serif;
             text-align: center;
-            font-size: 24px;
-            line-height: 1.6;
-            color: #ffffff; /* Handwritten font color */
-            font-family: 'Shadows Into Light', cursive; /* Handwritten font */
-            max-width: 80%;
-        }
-
-        @keyframes floatAnimation {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
+            margin: 50px 0;
         }
 
         @media (max-width: 768px) {
-            .title {
-                font-size: 80px; /* Responsive header size */
+            .main-header {
+                font-size: 40px;
+                text-align: center;
             }
 
-            .subtext {
-                font-size: 24px; /* Responsive subtext size */
+            .projects-container {
+                flex-direction: column;
+                align-items: center;
             }
 
-            .large, .medium, .small {
-                flex-basis: calc(50% - 20px);
+            .project {
+                width: 90%;
             }
-        }
-        @media (max-width: 768px) {
-            .close-button {
-                font-size: 24px; /* Adjust font size for smaller screens */
-                top: 10px; /* Adjust position for smaller screens */
-                right: 10px; /* Adjust position for smaller screens */
+
+            .project-description {
+                font-size: 16px;
+            }
+
+            .huge-text {
+                font-size: 80px;
             }
         }
     </style>
@@ -231,318 +152,70 @@
         <a href="about.html">About</a>
         <a href="connect.html">Connect</a>
     </div>
-    <div class="content">
-        <!-- Company 1 -->
-        <div class="section" onclick="toggleVisibility('company1')">
-            <div class="title">Action Aid Ethiopia: Industry, NGO</div>
-            <div class="subtext">Explore the Project</div>
-            <div class="hidden-section" id="company1">
-                <div class="close-button" onclick="toggleVisibility('company1')">X</div>
-                <div class="image-wrapper">
-                    <div class="image-container large">
-                        <img src="aid4.jpg" alt="Slide Image 1">
-                    </div>
-                    <div class="image-container medium">
-                        <img src="about1.png" alt="Slide Image 2">
-                    </div>
-                    <div class="image-container small">
-                        <img src="aid2.jpg" alt="Slide Image 3">
-                    </div>
-                    <div class="image-container medium">
-                        <img src="about4.png" alt="Slide Image 4">
-                    </div>
-                    <div class="image-container large">
-                        <img src="about3.png" alt="Slide Image 5">
-                    </div>
-                    <div class="image-container small">
-                        <img src="about1.png" alt="Slide Image 6">
-                    </div>
-                    <div class="image-container medium">
-                        <img src="about2.png" alt="Slide Image 7">
-                    </div>
-                    <div class="image-container large">
-                        <img src="aid4.jpg" alt="Slide Image 8">
-                    </div>
-                    <div class="image-container small">
-                        <img src="aid2.jpg" alt="Slide Image 9">
-                    </div>
-                </div>
-                <div class="details">
-                    What We Did:<br>
-                    ● Impact Analysis<br>
-                    ● Venue Design<br>
-                    ● Staffing Solutions<br>
-                    ● Comprehensive Reporting<br><br>
-                    More about what we did: Detailed description here...
-                </div>
-            </div>
-        </div>
-
-        <!-- Company 2 -->
-        <div class="section" onclick="toggleVisibility('company1')">
-            <div class="title">Hub of African’s Fashion Week (HAFW), Industry: Fashion</div>
-            <div class="subtext">Explore the Project</div>
-            <div class="hidden-section" id="company1">
-                <div class="close-button" onclick="toggleVisibility('company1')">X</div>
-                <div class="image-wrapper">
-                    <div class="image-container large">
-                        <img src="aid4.jpg" alt="Slide Image 1">
-                    </div>
-                    <div class="image-container medium">
-                        <img src="about1.png" alt="Slide Image 2">
-                    </div>
-                    <div class="image-container small">
-                        <img src="aid2.jpg" alt="Slide Image 3">
-                    </div>
-                    <div class="image-container medium">
-                        <img src="about4.png" alt="Slide Image 4">
-                    </div>
-                    <div class="image-container large">
-                        <img src="about3.png" alt="Slide Image 5">
-                    </div>
-                    <div class="image-container small">
-                        <img src="about1.png" alt="Slide Image 6">
-                    </div>
-                    <div class="image-container medium">
-                        <img src="about2.png" alt="Slide Image 7">
-                    </div>
-                    <div class="image-container large">
-                        <img src="aid4.jpg" alt="Slide Image 8">
-                    </div>
-                    <div class="image-container small">
-                        <img src="aid2.jpg" alt="Slide Image 9">
-                    </div>
-                </div>
-                <div class="details">
-                    What We Did:<br>
-                    ● Impact Analysis<br>
-                    ● Venue Design<br>
-                    ● Staffing Solutions<br>
-                    ● Comprehensive Reporting<br><br>
-                    More about what we did: Detailed description here...
-                </div>
-            </div>
-        </div>
-
-        <!-- Company 3 -->
-        <div class="section" onclick="toggleVisibility('company1')">
-            <div class="title">PEP & MCF, Industry: Industry, NGO</div>
-            <div class="subtext">Explore the Project</div>
-            <div class="hidden-section" id="company1">
-                <div class="close-button" onclick="toggleVisibility('company1')">X</div>
-                <div class="image-wrapper">
-                    <div class="image-container large">
-                        <img src="aid4.jpg" alt="Slide Image 1">
-                    </div>
-                    <div class="image-container medium">
-                        <img src="about1.png" alt="Slide Image 2">
-                    </div>
-                    <div class="image-container small">
-                        <img src="aid2.jpg" alt="Slide Image 3">
-                    </div>
-                    <div class="image-container medium">
-                        <img src="about4.png" alt="Slide Image 4">
-                    </div>
-                    <div class="image-container large">
-                        <img src="about3.png" alt="Slide Image 5">
-                    </div>
-                    <div class="image-container small">
-                        <img src="about1.png" alt="Slide Image 6">
-                    </div>
-                    <div class="image-container medium">
-                        <img src="about2.png" alt="Slide Image 7">
-                    </div>
-                    <div class="image-container large">
-                        <img src="aid4.jpg" alt="Slide Image 8">
-                    </div>
-                    <div class="image-container small">
-                        <img src="aid2.jpg" alt="Slide Image 9">
-                    </div>
-                </div>
-                <div class="details">
-                    What We Did:<br>
-                    ● Impact Analysis<br>
-                    ● Venue Design<br>
-                    ● Staffing Solutions<br>
-                    ● Comprehensive Reporting<br><br>
-                    More about what we did: Detailed description here...
-                </div>
-            </div>
-        </div>
-
-        <!-- Company 4 -->
-        <div class="section" onclick="toggleVisibility('company1')">
-            <div class="title">PSY ADDIS</div>
-            <div class="subtext">Explore the Project</div>
-            <div class="hidden-section" id="company1">
-                <div class="close-button" onclick="toggleVisibility('company1')">X</div>
-                <div class="image-wrapper">
-                    <div class="image-container large">
-                        <img src="aid4.jpg" alt="Slide Image 1">
-                    </div>
-                    <div class="image-container medium">
-                        <img src="about1.png" alt="Slide Image 2">
-                    </div>
-                    <div class="image-container small">
-                        <img src="aid2.jpg" alt="Slide Image 3">
-                    </div>
-                    <div class="image-container medium">
-                        <img src="about4.png" alt="Slide Image 4">
-                    </div>
-                    <div class="image-container large">
-                        <img src="about3.png" alt="Slide Image 5">
-                    </div>
-                    <div class="image-container small">
-                        <img src="about1.png" alt="Slide Image 6">
-                    </div>
-                    <div class="image-container medium">
-                        <img src="about2.png" alt="Slide Image 7">
-                    </div>
-                    <div class="image-container large">
-                        <img src="aid4.jpg" alt="Slide Image 8">
-                    </div>
-                    <div class="image-container small">
-                        <img src="aid2.jpg" alt="Slide Image 9">
-                    </div>
-                </div>
-                <div class="details">
-                    What We Did:<br>
-                    ● Impact Analysis<br>
-                    ● Venue Design<br>
-                    ● Staffing Solutions<br>
-                    ● Comprehensive Reporting<br><br>
-                    More about what we did: Detailed description here...
-                </div>
-            </div>
-        </div>
-
-
-        <!-- Company 5 -->
-        <div class="section" onclick="toggleVisibility('company1')">
-            <div class="title">Mignot Bazaar, Industry, Marketplace</div>
-            <div class="subtext">Explore the Project</div>
-            <div class="hidden-section" id="company1">
-                <div class="close-button" onclick="toggleVisibility('company1')">X</div>
-                <div class="image-wrapper">
-                    <div class="image-container large">
-                        <img src="aid4.jpg" alt="Slide Image 1">
-                    </div>
-                    <div class="image-container medium">
-                        <img src="about1.png" alt="Slide Image 2">
-                    </div>
-                    <div class="image-container small">
-                        <img src="aid2.jpg" alt="Slide Image 3">
-                    </div>
-                    <div class="image-container medium">
-                        <img src="about4.png" alt="Slide Image 4">
-                    </div>
-                    <div class="image-container large">
-                        <img src="about3.png" alt="Slide Image 5">
-                    </div>
-                    <div class="image-container small">
-                        <img src="about1.png" alt="Slide Image 6">
-                    </div>
-                    <div class="image-container medium">
-                        <img src="about2.png" alt="Slide Image 7">
-                    </div>
-                    <div class="image-container large">
-                        <img src="aid4.jpg" alt="Slide Image 8">
-                    </div>
-                    <div class="image-container small">
-                        <img src="aid2.jpg" alt="Slide Image 9">
-                    </div>
-                </div>
-                <div class="details">
-                    What We Did:<br>
-                    ● Impact Analysis<br>
-                    ● Venue Design<br>
-                    ● Staffing Solutions<br>
-                    ● Comprehensive Reporting<br><br>
-                    More about what we did: Detailed description here...
-                </div>
-            </div>
-        </div>
-
-
-        <!-- Company 6 -->
-        <div class="section" onclick="toggleVisibility('company1')">
-            <div class="title">LookUP Industry Workshop</div>
-            <div class="subtext">Explore the Project</div>
-            <div class="hidden-section" id="company1">
-                <div class="close-button" onclick="toggleVisibility('company1')">X</div>
-                <div class="image-wrapper">
-                    <div class="image-container large">
-                        <img src="aid4.jpg" alt="Slide Image 1">
-                    </div>
-                    <div class="image-container medium">
-                        <img src="about1.png" alt="Slide Image 2">
-                    </div>
-                    <div class="image-container small">
-                        <img src="aid2.jpg" alt="Slide Image 3">
-                    </div>
-                    <div class="image-container medium">
-                        <img src="about4.png" alt="Slide Image 4">
-                    </div>
-                    <div class="image-container large">
-                        <img src="about3.png" alt="Slide Image 5">
-                    </div>
-                    <div class="image-container small">
-                        <img src="about1.png" alt="Slide Image 6">
-                    </div>
-                    <div class="image-container medium">
-                        <img src="about2.png" alt="Slide Image 7">
-                    </div>
-                    <div class="image-container large">
-                        <img src="aid4.jpg" alt="Slide Image 8">
-                    </div>
-                    <div class="image-container small">
-                        <img src="aid2.jpg" alt="Slide Image 9">
-                    </div>
-                </div>
-                <div class="details">
-                    What We Did:<br>
-                    ● Impact Analysis<br>
-                    ● Venue Design<br>
-                    ● Staffing Solutions<br>
-                    ● Comprehensive Reporting<br><br>
-                    More about what we did: Detailed description here...
-                </div>
-            </div>
-        </div>
-
+    <div class="main-header">
+        Projects that tell stories.
     </div>
-
+    <div class="projects-container">
+        <div class="project" onclick="expandProjects(this)">
+            <img src="about1.png" alt="Company 1">
+            <div class="project-overlay">PSY Adiss</div>
+            <div class="project-description">Description for company 1.</div>
+        </div>
+        <div class="project" onclick="expandProjects(this)">
+            <img src="company2.jpg" alt="Company 2">
+            <div class="project-overlay">Company 2</div>
+            <div class="project-description">Description for company 2.</div>
+        </div>
+        <div class="project" onclick="expandProjects(this)">
+            <img src="company3.jpg" alt="Company 3">
+            <div class="project-overlay">Company 3</div>
+            <div class="project-description">Description for company 3.</div>
+        </div>
+        <div class="project" onclick="expandProjects(this)">
+            <img src="company4.jpg" alt="Company 4">
+            <div class="project-overlay">Company 4</div>
+            <div class="project-description">Description for company 4.</div>
+        </div>
+        <div class="project" onclick="expandProjects(this)">
+            <img src="company5.jpg" alt="Company 5">
+            <div class="project-overlay">Company 5</div>
+            <div class="project-description">Description for company 5.</div>
+        </div>
+        <div class="project" onclick="expandProjects(this)">
+            <img src="company6.jpg" alt="Company 6">
+            <div class="project-overlay">Company 6</div>
+            <div class="project-description">Description for company 6.</div>
+        </div>
+    </div>
+    <div class="expanded-projects" id="expanded-projects">
+        <!-- Additional images will be inserted here when a project is clicked -->
+    </div>
+    <div class="huge-text">
+        LaMonje
+    </div>
     <script>
-      // Custom cursor effect
-        const cursor = document.getElementById('cursor');
-        const trailCount = 10; // Number of trail elements
-        const trails = [];
-
-        // Create trail elements
-        for (let i = 0; i < trailCount; i++) {
-            const trail = document.createElement('div');
-            trail.className = 'trail';
-            document.body.appendChild(trail);
-            trails.push(trail);
-        }
-
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = `${e.clientX}px`;
-            cursor.style.top = `${e.clientY}px`;
-
-            // Move trail elements
-            for (let i = 0; i < trails.length; i++) {
-                const trail = trails[i];
-                setTimeout(() => {
-                    trail.style.left = `${e.clientX}px`;
-                    trail.style.top = `${e.clientY}px`;
-                }, i * 20); // Delay each trail element for a staggered effect
-            }
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
         });
 
-        function toggleVisibility(id) {
-            const section = document.getElementById(id);
-            section.classList.toggle('visible');
+        function expandProjects(project) {
+            const expandedContainer = document.getElementById('expanded-projects');
+            expandedContainer.style.display = 'flex';
+
+            // Clear previous images
+            expandedContainer.innerHTML = '';
+
+            // Add 8 new images
+            for (let i = 1; i <= 8; i++) {
+                const img = document.createElement('img');
+                img.src = project.querySelector('img').src.replace('.jpg', `-${i}.jpg`);
+                expandedContainer.appendChild(img);
+            }
+
+            // Add the original image
+            const originalImg = document.createElement('img');
+            originalImg.src = project.querySelector('img').src;
+            expandedContainer.appendChild(originalImg);
         }
     </script>
 </body>
