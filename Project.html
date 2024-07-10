@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - LaMonje</title>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chakra-ui/core/dist/chakra.min.css">
     <style>
         body {
             background-color: #CDF2FA;
@@ -36,6 +36,7 @@
             text-decoration: none;
             margin: 0 15px;
             transition: color 0.3s ease;
+            font-weight: bold; /* Make navigation links bold */
         }
 
         .navbar a:hover {
@@ -43,104 +44,93 @@
         }
 
         .main-header {
-            text-align: left;
-            font-size: 50px;
-            margin: 40px;
+            text-align: center;
+            font-size: 150px;
+            margin: 40px 0;
+            animation: slide-in 2s ease-out;
+            font-weight: bold; /* Make main header bold */
         }
 
-        .projects-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+        @keyframes slide-in {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .company-section {
             padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #000; /* Add a border between sections */
         }
 
-        .project {
-            position: relative;
-            width: 45%;
-            margin: 20px 0;
-            cursor: pointer;
+        .company-name {
+            font-size: 40px;
+            margin-bottom: 20px;
         }
 
-        .project img {
+        .company-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px auto; /* Center-align images and add margin */
+        }
+
+        .company-images img {
             width: 100%;
-            border-radius: 20px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
 
-        .project:hover img {
-            transform: scale(1.05);
-        }
-
-        .project-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            color: #FFF;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            border-radius: 20px;
-            font-size: 24px;
-        }
-
-        .project:hover .project-overlay {
-            opacity: 1;
+        .company-images img:hover {
+            transform: scale(1.1);
         }
 
         .project-description {
-            margin-top: 10px;
             font-size: 18px;
-            font-family: 'Shadows Into Light', cursive;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
-        .see-more {
-            cursor: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDEyIDEyIj4KPHBhdGggZD0iTTAgNGw0LTQgNC00LTEgMS00IDQtMyAzLTQgNC00IDQgMy0zLTQtNEw0IDAgMSAzLTQtM0w0IDQtNCAwIDQgNC04IDggNiA0IDgtNCA0TDIgMCAwbDBsLTIgM2wzIDAgNEw4IDBsLTEgMWwtNC00LTMgM0w0IDBsLTQtNCA0LTRsLTRsLTEgMWw0LTRsNC00LTEgMWw0IDQgMCAwLTIgM2wtMyAwLTRsLTQtNFYwbDQtNGwwLTIgTDMgMGwzIDAgNEw4IDBsLTYgNiAwIDEgM2wtMSAwLTQgNEwwbC00LTQtNCAwYzAtMSAwLTEgMCAwbC0yLTRtNHYwIGwtNCAwIGMtMSAwLTEgMCAwIDBsLTRsLTRsIDAgIGwgMCAtMiAtMyAwIC0zIDAgLTMgNGE0IDAgMCAwIDAgMCAwbC00LTIgM2wwICAzIDIgMG0wLTEgMCAgMG0tNiAwIGwtNC00IG0tMiAxIDIgMCBhNCA0IDAgMCAwIDAgbDIgNHYtMiBvIE0gMCAwbCBjMCAwIDAgMCB2IDIgMiBsLTMgLTRsIDAgMCBMLTRsMCAtMiAwIDAgTCAwIDEgIDAgIEwgMyAwIEwgMGwgMCBmICAwIDEgMG0tMiAyIGwgdjBsIDAgMCAwbCBkIGMgMSAxIDAgMC0gMCAgMC0yLTEgMCBMLTItNC0gMCAzIG0wIDAgMCAtNCwwICIgZmlsbD0iI0ZGOEEwMCIvPgo8L3N2Zz4K'), auto;
-        }
-
-        .expanded-projects {
-            display: none;
-            padding: 20px;
-        }
-
-        .expanded-projects img {
-            width: 30%;
-            margin: 10px;
-        }
-
-        .huge-text {
-            font-size: 150px;
-            font-family: 'Anton', sans-serif;
+        .footer {
             text-align: center;
-            margin: 50px 0;
+            margin: 40px 0;
+            font-family: 'Shadows Into Light', cursive;
+            font-size: 24px;
+        }
+
+        .footer a {
+            color: #000000;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #FB8500;
         }
 
         @media (max-width: 768px) {
             .main-header {
-                font-size: 40px;
-                text-align: center;
+                font-size: 70px;
             }
 
-            .projects-container {
-                flex-direction: column;
-                align-items: center;
+            .company-section {
+                padding: 10px;
             }
 
-            .project {
-                width: 90%;
+            .company-name {
+                font-size: 30px;
             }
 
             .project-description {
                 font-size: 16px;
-            }
-
-            .huge-text {
-                font-size: 80px;
             }
         }
     </style>
@@ -153,70 +143,108 @@
         <a href="connect.html">Connect</a>
     </div>
     <div class="main-header">
-        Projects that tell stories.
+        Projects
     </div>
-    <div class="projects-container">
-        <div class="project" onclick="expandProjects(this)">
-            <img src="about1.png" alt="Company 1">
-            <div class="project-overlay">PSY Adiss</div>
-            <div class="project-description">Description for company 1.</div>
+
+    <!-- Example of a company section -->
+    <div class="company-section">
+        <div class="company-name">Company Name</div>
+        <div class="company-images">
+            <img src="company1_image1.jpg" alt="Project Image">
+            <img src="company1_image2.jpg" alt="Project Image">
+            <!-- Repeat for 8 images -->
         </div>
-        <div class="project" onclick="expandProjects(this)">
-            <img src="company2.jpg" alt="Company 2">
-            <div class="project-overlay">Company 2</div>
-            <div class="project-description">Description for company 2.</div>
-        </div>
-        <div class="project" onclick="expandProjects(this)">
-            <img src="company3.jpg" alt="Company 3">
-            <div class="project-overlay">Company 3</div>
-            <div class="project-description">Description for company 3.</div>
-        </div>
-        <div class="project" onclick="expandProjects(this)">
-            <img src="company4.jpg" alt="Company 4">
-            <div class="project-overlay">Company 4</div>
-            <div class="project-description">Description for company 4.</div>
-        </div>
-        <div class="project" onclick="expandProjects(this)">
-            <img src="company5.jpg" alt="Company 5">
-            <div class="project-overlay">Company 5</div>
-            <div class="project-description">Description for company 5.</div>
-        </div>
-        <div class="project" onclick="expandProjects(this)">
-            <img src="company6.jpg" alt="Company 6">
-            <div class="project-overlay">Company 6</div>
-            <div class="project-description">Description for company 6.</div>
+        <div class="project-description">
+            Description of the project for Company Name goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac magna vehicula, fermentum ex ac, commodo augue.
         </div>
     </div>
-    <div class="expanded-projects" id="expanded-projects">
-        <!-- Additional images will be inserted here when a project is clicked -->
+
+    <!-- Repeat the company section for each company -->
+    <!-- You can copy and paste the above company section to add more companies -->
+
+     <div class="company-section">
+        <div class="company-name">Company Name</div>
+        <div class="company-images">
+            <img src="company1_image1.jpg" alt="Project Image">
+            <img src="company1_image2.jpg" alt="Project Image">
+            <!-- Repeat for 8 images -->
+        </div>
+        <div class="project-description">
+            Description of the project for Company Name goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac magna vehicula, fermentum ex ac, commodo augue.
+        </div>
     </div>
-    <div class="huge-text">
-        LaMonje
+
+     <div class="company-section">
+        <div class="company-name">Company Name</div>
+        <div class="company-images">
+            <img src="company1_image1.jpg" alt="Project Image">
+            <img src="company1_image2.jpg" alt="Project Image">
+            <!-- Repeat for 8 images -->
+        </div>
+        <div class="project-description">
+            Description of the project for Company Name goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac magna vehicula, fermentum ex ac, commodo augue.
+        </div>
     </div>
+
+     <div class="company-section">
+        <div class="company-name">Company Name</div>
+        <div class="company-images">
+            <img src="company1_image1.jpg" alt="Project Image">
+            <img src="company1_image2.jpg" alt="Project Image">
+            <!-- Repeat for 8 images -->
+        </div>
+        <div class="project-description">
+            Description of the project for Company Name goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac magna vehicula, fermentum ex ac, commodo augue.
+        </div>
+    </div>
+
+     <div class="company-section">
+        <div class="company-name">Company Name</div>
+        <div class="company-images">
+            <img src="company1_image1.jpg" alt="Project Image">
+            <img src="company1_image2.jpg" alt="Project Image">
+            <!-- Repeat for 8 images -->
+        </div>
+        <div class="project-description">
+            Description of the project for Company Name goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac magna vehicula, fermentum ex ac, commodo augue.
+        </div>
+    </div>
+
+     <div class="company-section">
+        <div class="company-name">Company Name</div>
+        <div class="company-images">
+            <img src="company1_image1.jpg" alt="Project Image">
+            <img src="company1_image2.jpg" alt="Project Image">
+            <!-- Repeat for 8 images -->
+        </div>
+        <div class="project-description">
+            Description of the project for Company Name goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac magna vehicula, fermentum ex ac, commodo augue.
+        </div>
+
+    </div>
+     <div class="company-section">
+        <div class="company-name">Company Name</div>
+        <div class="company-images">
+            <img src="company1_image1.jpg" alt="Project Image">
+            <img src="company1_image2.jpg" alt="Project Image">
+            <img src="company1_image2.jpg" alt="Project Image">
+            <img src="company1_image2.jpg" alt="Project Image">
+            <img src="company1_image2.jpg" alt="Project Image">
+            <img src="company1_image2.jpg" alt="Project Image">
+            <img src="company1_image2.jpg" alt="Project Image">
+            <img src="company1_image2.jpg" alt="Project Image">
+
+            <!-- Repeat for 8 images -->
+        </div>
+        <div class="project-description">
+            Description of the project for Company Name goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac magna vehicula, fermentum ex ac, commodo augue.
+        </div>
+    </div>
+
     <script>
         window.addEventListener('load', () => {
             document.body.classList.add('loaded');
         });
-
-        function expandProjects(project) {
-            const expandedContainer = document.getElementById('expanded-projects');
-            expandedContainer.style.display = 'flex';
-
-            // Clear previous images
-            expandedContainer.innerHTML = '';
-
-            // Add 8 new images
-            for (let i = 1; i <= 8; i++) {
-                const img = document.createElement('img');
-                img.src = project.querySelector('img').src.replace('.jpg', `-${i}.jpg`);
-                expandedContainer.appendChild(img);
-            }
-
-            // Add the original image
-            const originalImg = document.createElement('img');
-            originalImg.src = project.querySelector('img').src;
-            expandedContainer.appendChild(originalImg);
-        }
     </script>
 </body>
 </html>
