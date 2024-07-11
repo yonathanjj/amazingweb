@@ -141,12 +141,20 @@
                 grid-template-columns: repeat(2, 1fr); /* 2 images per row */
             }
         }
-
-        @media (max-width: 480px) {
-            .company-images {
-                grid-template-columns: 1fr; /* 1 image per row */
+@media (max-width: 768px) {
+            .image-container {
+                flex-direction: row; /* Display images in a row */
+                justify-content: flex-start; /* Start images from left */
+                padding: 0; /* Remove padding for mobile */
+                overflow-x: auto; /* Allow horizontal scrolling */
+                -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+                -ms-overflow-style: -ms-autohiding-scrollbar; /* Hide scrollbar on Edge */
             }
-        }
+
+            .image-block {
+                margin-right: 10px; /* Adjust spacing between images */
+            }
+       
     </style>
 </head>
 <body>
