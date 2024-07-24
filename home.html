@@ -16,14 +16,14 @@
         }
 
         .navbar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: transparent !important; /* Force transparency */
         }
 
         .navbar a {
@@ -34,43 +34,74 @@
         }
 
         .navbar a:hover {
-            color: #ffffff;
+            color: #000;
         }
 
-        .image-container {
+        .gallery-images {
+            position: relative;
+            width: 100%;
+            height: 100vh;
             display: flex;
-            justify-content: flex-start;
-            /* Start images from left on desktop */
-            overflow-x: auto;
-            /* Allow horizontal scrolling */
-            margin: 20px 0;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-blend-mode: overlay;
+        }
+
+        .dark-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
             padding: 10px;
-            /* Add padding to prevent edge clipping */
-            -webkit-overflow-scrolling: touch;
-            /* Smooth scrolling on iOS */
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: left;
+            z-index: 2;
+            transition: transform 1s ease-in-out;
         }
 
-        .image-block {
-            text-align: center;
-            margin-right: 20px;
-            /* Add spacing between images */
+        .gallery-overlay .gallery-text {
+            font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
         }
 
-        .image-block img {
-            width: 271px;
-            height: 592px;
-            border-radius: 30px;
-            transition: transform 0.3s ease, filter 0.3s ease;
+        .gallery-overlay .learn-more {
+            font-size: 0.875rem;
+            font-family: 'Roboto', sans-serif;
+            color: #FB8500;
+            cursor: pointer;
+            text-decoration: underline;
+            display: block;
+            margin-top: 0.5rem;
         }
 
-        .image-block img:hover {
-            transform: scale(0.95);
-            filter: brightness(0.5);
-        }
+        @media (max-width: 768px) {
+            .navbar a {
+                margin: 0 5px;
+            }
 
-        .image-block .image-caption {
-            color: #ffffff;
-            margin-top: 10px;
+            .gallery-overlay .gallery-text {
+                font-size: 1rem;
+            }
+
+            .gallery-overlay .learn-more {
+                font-size: 0.75rem;
+            }
         }
 
         .main-text {
@@ -112,34 +143,6 @@
             color: #ffffff;
         }
 
-        .footer {
-            text-align: center;
-            margin: 50px 0;
-            font-family: 'Shadows Into Light', cursive;
-        }
-
-        .footer a {
-            color: #FB8500;
-            text-decoration: none;
-            font-size: 30px;
-            display: inline-flex;
-            align-items: center;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-
-        .footer a:hover {
-            color: #fff;
-        }
-
-        .footer a .arrow {
-            margin-left: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .footer a:hover .arrow {
-            transform: translateX(10px);
-        }
-
         @media (max-width: 768px) {
             .image-container {
                 flex-direction: row;
@@ -154,11 +157,6 @@
                 /* Smooth scrolling on iOS */
                 -ms-overflow-style: -ms-autohiding-scrollbar;
                 /* Hide scrollbar on Edge */
-            }
-
-            .image-block {
-                margin-right: 10px;
-                /* Adjust spacing between images */
             }
 
             .main-text {
@@ -185,22 +183,11 @@
         <a href="connect.html">Connect</a>
     </div>
 
-    <div class="image-container">
-        <div class="image-block">
-            <img src="hawfi.png" alt="Image 1">
-            <div class="image-caption">HAWF</div>
-        </div>
-        <div class="image-block">
-            <img src="look2.png" alt="Image 2">
-            <div class="image-caption">Look Up</div>
-        </div>
-        <div class="image-block">
-            <img src="pep3.png" alt="Image 3">
-            <div class="image-caption">PEP MCF</div>
-        </div>
-        <div class="image-block">
-            <img src="aid.png" alt="Image 4">
-            <div class="image-caption">Action Aid Ethiopia</div>
+    <div class="gallery-images">
+        <div class="dark-overlay"></div>
+        <div class="gallery-overlay">
+            <div class="gallery-text">PEP-MCF training validation workshop</div>
+            <div class="learn-more"><a href="projects.html">Learn more</a></div>
         </div>
     </div>
     <div class="main-text" id="home">
@@ -215,7 +202,6 @@
         </p>
     </div>
     <div class="footer">
-        <a href="#projects">Look at our projects <span class="arrow">→</span></a>
     </div>
     <div class="footer">
         <div class="footer-bar">
@@ -247,7 +233,6 @@
             </div>
         </div>
     </div>
-
     <style>
         .footer-bar {
             display: flex;
@@ -358,6 +343,100 @@
     }
     </script>
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        const desktopImages = [
+            'gallery1.png',
+            'gallery2.png',
+            'gallery3.png',
+            'gallery4.png',
+            'gallery5.png',
+            'gallery6.png'
+        ];
+
+        const mobileImages = [
+            'gallery1m.png',
+            'gallery2m.png',
+            'gallery3m.png',
+            'gallery4m.png',
+            'gallery5m.png',
+            'gallery6m.png'
+        ];
+
+        // Preload images
+        const preloadImages = (urls) => {
+            urls.forEach((url) => {
+                const img = new Image();
+                img.src = url;
+            });
+        };
+
+        preloadImages([...desktopImages, ...mobileImages]);
+
+        // Handle image rotation and overlay text
+        let currentImageIndex = 0;
+        const galleryElement = document.querySelector('.gallery-images');
+        const overlayText = document.querySelector('.gallery-text');
+
+        const updateImage = () => {
+            currentImageIndex = (currentImageIndex + 1) % (window.innerWidth <= 768 ? mobileImages.length : desktopImages.length);
+            galleryElement.style.backgroundImage = `url(${window.innerWidth <= 768 ? mobileImages[currentImageIndex] : desktopImages[currentImageIndex]})`;
+
+            // Example descriptions for each image
+            const texts = [
+                'PEP-MCF training validation workshop',
+                'Action-Aid-Ethiopia Co-design of communication products',
+                'HAFW a week-long annual fashion week',
+                'PSY Addis Co-organizing and Co-design of communication materials',
+                'Mignot Bazaar Co-organizing and Design of communication materials',
+                'Look-up a community workshop of entrepreneurs'
+            ];
+
+            overlayText.innerHTML = texts[currentImageIndex];
+        };
+
+        setInterval(updateImage, 3000);
+
+        // Anime.js animations
+        anime({
+            targets: '.gallery-images',
+            opacity: [0, 1],
+            duration: 1500,
+            easing: 'easeInOutSine'
+        });
+
+        // ScrollReveal animations
+        ScrollReveal().reveal('.gallery-overlay', {
+            delay: 300,
+            distance: '50px',
+            origin: 'bottom',
+            easing: 'ease-in-out',
+            duration: 800,
+            reset: true
+        });
+
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('navToggle').addEventListener('click', function () {
+                document.body.classList.toggle('nav-open');
+                document.getElementById('mobileMenu').classList.toggle('hidden');
+            });
+
+            document.querySelectorAll('#mobileMenu a').forEach(item => {
+                item.addEventListener('click', function () {
+                    document.body.classList.remove('nav-open');
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                });
+            });
+        });
+
+        // Handle resizing
+        window.addEventListener('resize', () => {
+            updateImage();
+        });
+    </script>
 </body>
 
 </html>
